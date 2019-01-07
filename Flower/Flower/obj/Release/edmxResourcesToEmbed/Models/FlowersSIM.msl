@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FlowersSIMModelStoreContainer" CdmEntityContainer="FlowersSIMEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="FlowersSIMModel.Admins">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="AdminsId" ColumnName="AdminsId" />
+          <ScalarProperty Name="AdminsName" ColumnName="AdminsName" />
+          <ScalarProperty Name="AdminsPwd" ColumnName="AdminsPwd" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chat">
+      <EntityTypeMapping TypeName="FlowersSIMModel.Chat">
+        <MappingFragment StoreEntitySet="Chat">
+          <ScalarProperty Name="ChatStatus" ColumnName="ChatStatus" />
+          <ScalarProperty Name="SendMemId" ColumnName="SendMemId" />
+          <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+          <ScalarProperty Name="ChatContent" ColumnName="ChatContent" />
+          <ScalarProperty Name="ChatCreatTime" ColumnName="ChatCreatTime" />
+          <ScalarProperty Name="MembersId" ColumnName="MembersId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Class">
+      <EntityTypeMapping TypeName="FlowersSIMModel.Class">
+        <MappingFragment StoreEntitySet="Class">
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Color">
+      <EntityTypeMapping TypeName="FlowersSIMModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Festival">
+      <EntityTypeMapping TypeName="FlowersSIMModel.Festival">
+        <MappingFragment StoreEntitySet="Festival">
+          <ScalarProperty Name="FestivalId" ColumnName="FestivalId" />
+          <ScalarProperty Name="FestivalName" ColumnName="FestivalName" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FlowerKind">
+      <EntityTypeMapping TypeName="FlowersSIMModel.FlowerKind">
+        <MappingFragment StoreEntitySet="FlowerKind">
+          <ScalarProperty Name="FlowerKindId" ColumnName="FlowerKindId" />
+          <ScalarProperty Name="FlowerKindName" ColumnName="FlowerKindName" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="FlowersSIMModel.Members">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="MembersId" ColumnName="MembersId" />
+          <ScalarProperty Name="MembersName" ColumnName="MembersName" />
+          <ScalarProperty Name="MembersPwd" ColumnName="MembersPwd" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="FlowersSIMModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductVolume" ColumnName="ProductVolume" />
+          <ScalarProperty Name="Picture1" ColumnName="Picture1" />
+          <ScalarProperty Name="Picture2" ColumnName="Picture2" />
+          <ScalarProperty Name="Picture3" ColumnName="Picture3" />
+          <ScalarProperty Name="Picture4" ColumnName="Picture4" />
+          <ScalarProperty Name="Picture5" ColumnName="Picture5" />
+          <ScalarProperty Name="Material" ColumnName="Material" />
+          <ScalarProperty Name="Package" ColumnName="Package" />
+          <ScalarProperty Name="FlowerLanguage" ColumnName="FlowerLanguage" />
+          <ScalarProperty Name="OriginalPrice" ColumnName="OriginalPrice" />
+          <ScalarProperty Name="NowPrice" ColumnName="NowPrice" />
+          <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+          <ScalarProperty Name="FestivalId" ColumnName="FestivalId" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="FlowerKindId" ColumnName="FlowerKindId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShoppingCar">
+      <EntityTypeMapping TypeName="FlowersSIMModel.ShoppingCar">
+        <MappingFragment StoreEntitySet="ShoppingCar">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="MembersId" ColumnName="MembersId" />
+          <ScalarProperty Name="NowPrice" ColumnName="NowPrice" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="FlowersSIMModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+          <ScalarProperty Name="DeliveryMode" ColumnName="DeliveryMode" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ConsigneeAddress" ColumnName="ConsigneeAddress" />
+          <ScalarProperty Name="ConsigneePhone" ColumnName="ConsigneePhone" />
+          <ScalarProperty Name="ConsigneeName" ColumnName="ConsigneeName" />
+          <ScalarProperty Name="OrdersPhone" ColumnName="OrdersPhone" />
+          <ScalarProperty Name="OrdersName" ColumnName="OrdersName" />
+          <ScalarProperty Name="MembersId" ColumnName="MembersId" />
+          <ScalarProperty Name="OrdersId" ColumnName="OrdersId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

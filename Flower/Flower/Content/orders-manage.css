@@ -1,0 +1,11 @@
+section .title {
+    padding-top: 20px;
+}
+
+section .title table td {
+    width: 145px;
+}
+section .title table tr td a {
+    color:blue;
+    text-decoration:none;
+}

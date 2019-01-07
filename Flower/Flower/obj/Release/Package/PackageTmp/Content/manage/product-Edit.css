@@ -1,0 +1,24 @@
+section .product-detail {
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 800px;
+    height: 450px;
+}
+
+section .product-detail table {
+    margin: 0 auto;
+    width: 600px;
+    height: 340px;
+    border: 1px solid #000;
+}
+section .product-detail table th {
+    width:110px;
+}
+section .product-detail table td,
+section .product-detail table th {
+    border: 1px solid #000;
+}
+
+section .product-detail table tr:nth-last-child(1) td {
+    text-align: center;
+}

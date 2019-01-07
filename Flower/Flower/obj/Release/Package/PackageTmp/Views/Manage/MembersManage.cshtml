@@ -1,0 +1,94 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<Flower.Models.Members>
+@{
+    ViewBag.Title = "鲜花后台管理页面-用户管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    <link href="~/Content/manage/members-manage.css" rel="stylesheet" />
+</asp:Content>
+
+<script type="text/javascript">
+    function get() {
+        obj = document.getElementsByName("checkitem");
+        checkValue = [];
+        for (k in obj) {
+            if (obj[k].checked)
+                checkValue.push(obj[k].value);
+        }
+        deleteId = checkValue.toString();
+        tableName = "Members";
+        document.getElementById("BatchDelete").href = "/Manage/BatchDelete/?idArray=" + deleteId + "&tableName=" + tableName;
+    }
+</script>
+
+<div class="content">
+    <div class="title">用户管理</div>
+    <div style="text-align:right">
+        <button onclick="window.location.href = '/Manage/MembersAdd'">新增用户</button>
+        <a href="/Manage/BatchDelete/" id="BatchDelete" onclick="return confirm('确认删除吗？该信息与相关订单信息都会被删除！')"><input type='button' value='批量删除' onclick="get()" /></a>
+
+    </div>
+    <div class="search">
+        <fieldset>
+            <legend>用户查询</legend>
+            <form action="/Manage/MembersManage" method="post">
+                <span>用户名称：</span><input type="text" name="membersName" id="membersName" style="width:120px" />
+                <span>性别：</span><input type="radio" name="gender" id="gender" value="0" />男<input type="radio" name="gender" id="gender" value="1" />女
+                <span>联系电话：</span><input type="text" name="phone" id="phone" style="width:120px" />
+                <input type="submit" value="搜索(S)" accesskey="S" />
+                <input type="button" onclick="window.location.href = '/Manage/MembersManage'" value="刷新" accesskey="S" />
+            </form>
+        </fieldset>
+    </div>
+    <p></p>
+    <table style="margin: 0 auto">
+        <tr>
+            <th width="180px">多选</th>
+            <th width="180px">用户名</th>
+            <th width="180px">性别</th>
+            <th width="180px">联系电话</th>
+            <th width="180px">操作</th>
+        </tr>
+        <tr>
+            @if (Model.Count != 0)
+            {
+                foreach (var item in Model)
+                {
+                <tr>
+                    <td>@Html.CheckBox("checkitem", new { value = item.MembersId, style = "zoom:200%;" })</td>
+                    <td>@item.MembersName</td>
+                    @if (item.Gender == 0)
+                    {
+                        <td>男</td>
+                    }
+                    @if (item.Gender == 1)
+                    {
+                        <td>女</td>
+                    }
+                    <td>@item.Phone</td>
+                    <td>
+                        <a href="/Manage/MembersEdit/@item.MembersId">编辑</a>
+                        <a href="/Manage/MembersDelete/@item.MembersId" onclick="return confirm('确认删除吗？')">删除</a>
+                    </td>
+                </tr>
+                }
+            }
+            else
+            {
+                <tr><td colspan="9">暂未查询到符合条件的内容</td></tr>
+            }
+            <tr>
+                <td colspan="9">
+                    @Html.Pager(Model, new PagerOptions
+           {
+               PageIndexParameterName = "pageIndex",
+               FirstPageText = "首页",
+               PrevPageText = "上一页",
+               NextPageText = "下一页",
+               LastPageText = "末页",
+           })
+                </td>
+            </tr>
+        </table>
+    </div>

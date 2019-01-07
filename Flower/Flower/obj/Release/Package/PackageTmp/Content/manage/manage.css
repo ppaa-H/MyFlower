@@ -1,0 +1,62 @@
+body {
+    width: 100%;
+    text-align: center;
+    background-color: gray;
+    font-size:20px;
+}
+button {
+    font-size:20px;
+}
+input {
+     font-size:20px;
+}
+textarea {
+     font-size:20px;
+}
+.content {
+    margin: 0 auto;
+    width: 70%;
+    height: 1000px;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    font-size: 20px;
+}
+
+header .nav-list {
+    text-align: left;
+    padding-left: 100px;
+    background-color: #66cccc;
+}
+
+header .nav-list ul {
+    padding-top: 20px;
+    list-style-type: none;
+    height: 60px;
+}
+
+header .nav-list ul li {
+    display: inline-block;
+}
+
+header .nav-list ul li:nth-child(1) {
+    padding: 0 20px;
+}
+
+section {
+    width: 100%;
+    height: 700px;
+    background-color: white;
+}
+section .title {
+    padding-top: 20px;
+    font-size:25px;
+    color:red;
+}
+
+
+.field-validation-error {
+    color: #ff0000;
+}

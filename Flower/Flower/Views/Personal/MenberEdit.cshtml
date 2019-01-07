@@ -1,0 +1,55 @@
+﻿@model Flower.Models.Members
+
+@{
+    ViewBag.Title = "MenberEdit";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<link href="~/Content/msse.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<form action="/Personal/MenberEdit" method="post">
+    <div>
+        <h1 style="text-align:center;margin-top:150px;">修改个人信息页面</h1>
+        @Html.HiddenFor(m => m.MembersId)
+        <table class="cantainer">
+            <tr style="width:200px;">
+                <td style="width:50px;">@Html.DisplayNameFor(m => m.MembersName)</td>
+                <td style="width:150px;">
+                    @Html.TextBoxFor(m => m.MembersName)<br />
+                    @Html.ValidationMessageFor(m => m.MembersName)
+                </td>
+            </tr>
+            <tr style="width:200px;">
+                <td style="width:50px;">@Html.DisplayNameFor(m => m.MembersPwd)</td>
+                <td style="width:150px;">
+                    @Html.TextBoxFor(m => m.MembersPwd)<br />
+                    @Html.ValidationMessageFor(m => m.MembersPwd)
+                </td>
+            </tr>
+            <tr style="width:200px;">
+                <td style="width:50px;">@Html.DisplayNameFor(m => m.ConfirmPwd)</td>
+                <td style="width:150px;">
+                    @Html.TextBoxFor(m => m.ConfirmPwd)<br />
+                    @Html.ValidationMessageFor(m => m.ConfirmPwd)
+                </td>
+            </tr>
+            <tr style="width:200px;">
+                <td style="width:50px;">@Html.DisplayNameFor(m => m.Phone)</td>
+                <td style="width:150px;">
+                    @Html.TextBoxFor(m => m.Phone)<br />
+                    @Html.ValidationMessageFor(m => m.Phone)
+                </td>
+            </tr>
+            <tr style="width:200px;">
+                <td colspan="2">
+                    <input type="submit" value="提交" style="width:80px;" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="取消" style="width:80px;" onclick=" window.location.href='/Personal/Index' " />
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</form>

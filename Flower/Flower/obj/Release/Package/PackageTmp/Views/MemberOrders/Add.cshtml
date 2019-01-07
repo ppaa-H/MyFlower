@@ -1,0 +1,110 @@
+﻿@model Flower.Models.Orders
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<script>
+    window.onload = function () {
+        
+        var url = location.search
+        var reg1 = new RegExp("[^array=]+");
+        var reg2 = new RegExp("[^carOrproduct=]+");
+        var reg3 = new RegExp("[^number=]+");
+        //var id = parseInt(url.match(reg));
+        var array = ((url.split("?")[1]).split("&")[0]).match(reg1)
+        var carOrproduct = ((url.split("?")[1]).split("&")[1]).match(reg2)
+        //alert(array)
+        //alert(carOrproduct)
+        //$('#ProductId').val(id)
+        $('#ProductIdList').val(array)
+        $('#carOrproduct').val(carOrproduct)
+        if (carOrproduct == 1)
+        {
+            var number = ((url.split("?")[1]).split("&")[2]).match(reg3)
+            $('#Number').val(number);
+        }
+        
+    }
+</script>
+<link href="~/Content/morder.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<form method="post" action="/MemberOrders/Add" id="log">
+    <div class="list">
+        <h1 style="text-align:center;margin-top:150px;">商品购买页面</h1>
+        <table class="listta">
+            <tr style="display:none">
+                <td>产品编号</td>
+                <td>
+                    @*@Html.TextBoxFor(m => m.ProductId)*@
+                    <input name="ProductIdList" id="ProductIdList" type="text" placeholder="产品编号" />
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td>来源购物车还是直接下单</td>
+                <td>
+                    @*@Html.TextBoxFor(m => m.ProductId)*@
+                    <input name="carOrproduct" id="carOrproduct" type="number" placeholder="来源购物车还是直接下单" />
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td>商品数量</td>
+                <td>
+                    @*@Html.TextBoxFor(m => m.ProductId)*@
+                    <input name="Number" id="Number" type="number" placeholder="商品数量" />
+                </td>
+            </tr>
+            <tr>
+                <td>寄件人:</td>
+                <td>
+                    @Html.TextBoxFor(m => m.OrdersName)
+                    <br />
+                    @Html.ValidationMessageFor(m => m.OrdersName)
+                </td>
+            </tr>
+            <tr>
+                <td>寄件人电话：</td>
+                <td>
+                    @Html.TextBoxFor(m => m.OrdersPhone)
+                    <br />
+                    @Html.ValidationMessageFor(m => m.OrdersPhone)
+                </td>
+            </tr>
+            <tr>
+                <td>收件人：</td>
+                <td>
+                    @Html.TextBoxFor(m => m.ConsigneeName)
+                    <br />
+                    @Html.ValidationMessageFor(m => m.ConsigneeName)
+                </td>
+            </tr>
+            <tr>
+                <td>收件人电话：</td>
+                <td>
+                    @Html.TextBoxFor(m => m.ConsigneePhone)
+                    <br />
+                    @Html.ValidationMessageFor(m => m.ConsigneePhone)
+                </td>
+            </tr>
+            <tr>
+                <td>收件人地址：</td>
+                <td>
+                    @Html.TextBoxFor(m => m.ConsigneeAddress)
+                    <br />
+                    @Html.ValidationMessageFor(m => m.ConsigneeAddress)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="提交" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="取消" onclick="window.location.href = '/Home/Index'" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

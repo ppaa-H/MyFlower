@@ -1,0 +1,111 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<Flower.Models.OrderGoods>
+@{
+    ViewBag.Title = "鲜花后台管理页面-订单详情";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    <link href="~/Content/manage/OrdersList.css" rel="stylesheet" />
+</asp:Content>
+
+<form action="/Manage/OrdersList" method="post">
+    <div class="order-detail" id="detail">
+        <div class="title" style="padding:15px 0;">订单信息</div>
+        <div class="car">
+            <table>
+                <tr>
+                    <td colspan="7">所购商品</td>
+                </tr>
+                <tr>
+                    <th colspan="2" width="546px">鲜花</th>
+                    <th width="90px">商品单价</th>
+                    <th width="50px">数量</th>
+                    <th width="90px">金额</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td width="110px"><img src="@item.Picture1" width="80" height="80" /></td>
+                        <td style="text-align:left">@item.ProductName</td>
+                        <td>￥@item.NowPrice</td>
+                        <td>@item.Num</td>
+                        <td>￥@item.Price</td>
+                    </tr>
+                }
+                <tr style="padding:0;">
+                    <td colspan=" 2" style="border:none;">
+                        @Html.Pager(Model, new PagerOptions
+                            {
+                                PageIndexParameterName = "pageIndex",
+                                FirstPageText = "首页",
+                                PrevPageText = "上一页",
+                                NextPageText = "下一页",
+                                LastPageText = "末页",
+                            })
+                    </td>
+                    <td colspan="3" style="border:none; font-size:24px">订单总额: <span style="color: #f50; font-size: 24px;">@ViewBag.Price</span> 元</td>
+                </tr>
+            </table>
+        </div>
+        <div class="message">
+            <table>
+                <tr style="border-top:1px solid #000">
+                    <td class="subtitle">收货人信息</td>
+                    <td class="subtitle">收货人信息</td>
+                </tr>
+                <tr>
+                    <td>订购人姓名：@ViewBag.Orders.OrdersName</td>
+                    <td>收货人姓名：@ViewBag.Orders.ConsigneeName</td>
+                </tr>
+                <tr>
+                    <td>订购人电话：@ViewBag.Orders.OrdersPhone</td>
+                    <td>收货人电话：@ViewBag.Orders.ConsigneePhone</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        &nbsp;&nbsp;&nbsp;&nbsp;下单时间：@ViewBag.Orders.CreateTime.ToShortDateString()
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;收货地址：@ViewBag.Orders.ConsigneeAddress</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        &nbsp;&nbsp;&nbsp;&nbsp;配送时间：@ViewBag.Orders.DeliveryTime.ToShortDateString()
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:none;" colspan="2">
+                        @{
+                            if (@ViewBag.Orders.Status == 0)
+                            {
+                                <input type="button" onclick="window.location.href = '/Manage/OrderOperation/@ViewBag.Orders.OrdersId'" value="等待买家付款" disabled="disabled"><span>         </span><input type="button" value="关闭" onclick="    window.location.href = '/Manage/OrdersManage'">
+                            }
+                            if (@ViewBag.Orders.Status == 1)
+                            {
+                                <input type="button" onclick="window.location.href = '/Manage/OrderOperation/@ViewBag.Orders.OrdersId'" value="发货"><span>         </span><input type="button" value="关闭" onclick="window.location.href = '/Manage/OrdersManage'">
+                            }
+                            if (@ViewBag.Orders.Status == 2)
+                            {
+                                <input type="button" onclick="window.location.href = '/Manage/OrderOperation/@ViewBag.Orders.OrdersId'" value="等待买家收货" disabled="disabled"><span>         </span><input type="button" value="关闭" onclick="window.location.href = '/Manage/OrdersManage'">
+                            }
+                            if (@ViewBag.Orders.Status == 3)
+                            {
+                                <input type="button" onclick="window.location.href = '/Manage/OrderOperation/@ViewBag.Orders.OrdersId'" value="订单完成" disabled="disabled"><span>         </span><input type="button" value="关闭" onclick="window.location.href = '/Manage/OrdersManage'">
+                            }
+                            if (@ViewBag.Orders.Status == 4)
+                            {
+                                <input type="button" onclick="window.location.href = '/Manage/OrderOperation/@ViewBag.Orders.OrdersId'" value="退款"><span>         </span><input type="button" value="关闭" onclick="window.location.href = '/Manage/OrdersManage'">
+                            }
+                            if (@ViewBag.Orders.Status == 5)
+                            {
+                                <input type="button" onclick="window.location.href = '/Manage/OrderOperation/@ViewBag.Orders.OrdersId'" value="退款完成" disabled="disabled"><span>         </span><input type="button" value="关闭" onclick="window.location.href = '/Manage/OrdersManage'">
+                            }
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>

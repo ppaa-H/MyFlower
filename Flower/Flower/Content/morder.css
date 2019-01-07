@@ -1,0 +1,43 @@
+
+body {
+    background:url("/Image/bgall.gif") repeat;
+}
+
+form {
+    /*border:solid 1px #000;*/
+    margin:100px auto;
+    width:100%;
+    height:580px;
+    margin-top:150px;
+}
+table{
+   
+    width:500px;
+    margin:55px auto;
+    height:500px;
+    border:solid 1px #000;
+    border-width:3px 3px 3px 3px;
+  
+   
+}
+table tr td {
+       font-weight:bold;
+       border:solid 1px #000;  
+    }
+.cantainer tr {
+     height:50px; 
+      border:solid 1px #000;  
+}
+.cantainer tr td:first-child{
+   text-align:center;
+   margin-left:150px;
+}
+.cantainer tr td input {
+    /*background-color:#E6E6FA;*/
+    height:30px;
+    width:250px;
+    }
+.cantainer #submit{
+margin-left:50px;
+}
+

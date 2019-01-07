@@ -1,0 +1,68 @@
+﻿@model Flower.Models.Members
+@using Flower.Models;
+@{
+    ViewBag.Title = "鲜花后台管理页面-用户信息增加";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    <link href="~/Content/manage/product-Edit.css" rel="stylesheet" />
+</asp:Content>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+
+<form action="/Manage/MembersAdd" method="post">
+    <div class="product-detail" id="detail">
+        <div class="title" style="padding:15px 0;">会员信息增加</div>
+        @Html.HiddenFor(m => m.MembersId)
+        <table style="border-collapse:collapse;">
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.MembersName)</th>
+                <td>
+                    @Html.TextBoxFor(m => m.MembersName, new { size = "40" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.MembersName)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.MembersPwd)</th>
+                <td>
+                    @Html.PasswordFor(m => m.MembersPwd, new { size = "40" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.MembersPwd)
+                </td>
+
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.ConfirmPwd)</th>
+                <td>
+                    @Html.PasswordFor(m => m.ConfirmPwd, new { size = "40" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.ConfirmPwd)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Gender)</th>
+                <td>
+                    @Html.RadioButtonFor(m => m.Gender, 0, new { @checked = true })男
+                    @Html.RadioButtonFor(m => m.Gender, 1)女
+                    <br />
+                    @Html.ValidationMessageFor(m => m.Gender)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Phone)</th>
+                <td>
+                    @Html.TextBoxFor(m => m.Phone, new { size = "40" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.Phone)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="提交" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="取消" onclick="window.location.href = '/Manage/MembersManage'" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

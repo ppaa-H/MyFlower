@@ -1,0 +1,137 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<Flower.Models.Orders>
+@{
+    ViewBag.Title = "OrderIndex";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<link href="~/Content/orderindex.css" rel="stylesheet" />
+<script>
+    //获取产品id
+    var url = location.search
+    var reg = new RegExp("[0-9]+");
+    var id = parseInt(url.match(reg));
+    window.onload = function () {
+        $('#ProductId').val(id)
+
+    }
+</script>
+
+
+<form>
+    <div class="cont">
+        <h1 style="text-align:center;color:black;">用户订单列表</h1>
+        <table class="main_top">
+            <tr class="first_tr">
+                <td colspan="5"><span style="margin-left: 20px;">我的订单</span></td>
+                <td><span style="display:none;">@*@item.OrdersId*@</span></td>
+                <td></td>
+            </tr>
+
+            <tr class="second_tr" style="text-align:center;">
+                <td>订单号</td>
+                <td>寄件人</td>
+                <td>寄件人电话</td>
+                <td>订单总价</td>
+                <td>订单状态</td>
+                <td>操作</td>
+                <td>订单详情</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr class="third_tr">
+                    <td>003256466<span />@item.OrdersId</td>
+                    <td>@item.OrdersName</td>
+                    <td>@item.OrdersPhone</td>
+                    <td>@item.Price<span />元</td>
+                    <td id="st" style="display:none;">@item.Status</td>
+                    @{
+
+                if (item.Status == 0)
+                {
+                    <td>待付款</td>
+                }
+
+                if (item.Status == 1)
+                {
+                    <td>已付款未发货</td>
+                }
+
+                if (item.Status == 2)
+                {
+                    <td>已发货</td>
+                }
+                if (item.Status == 3)
+                {
+                    <td>已收货</td>
+                }
+                if (item.Status == 4)
+                {
+                    <td>待退款</td>
+                }
+                if (item.Status == 5)
+                {
+                    <td>已退款</td>
+                }
+                    }
+                    @{
+                if (item.Status == 0)
+                {
+
+                    <td><input type="button" onclick="window.location.href = '/MemberOrders/delete/@item.OrdersId'" value="付款"></td>
+                }
+                if (item.Status == 1)
+                {
+
+                    <td><input type="button" onclick="window.location.href = '/MemberOrders/delete/@item.OrdersId'" value="退款"></td>
+                }
+                if (item.Status == 2)
+                {
+
+                    <td><input type="button" onclick="window.location.href = '/MemberOrders/delete/@item.OrdersId'" value="确认收货"></td>
+                }
+                if (item.Status == 3)
+                {
+
+                    <td><input type="button" onclick="window.location.href = '/MemberOrders/delete/@item.OrdersId'" value="订单已完成" disabled="disabled"></td>
+
+                }
+                if (item.Status == 4)
+                {
+
+                    <td><input type="button" onclick="window.location.href = '/MemberOrders/delete/@item.OrdersId'" value="退款中" disabled="disabled"></td>
+                }
+                if (item.Status == 5)
+                {
+
+                    <td><input type="button" onclick="window.location.href = '/MemberOrders/delete/@item.OrdersId'" value="订单已完成" disabled="disabled"></td>
+                }
+                    }
+                    <td colspan="1"><a href="/MemberOrders/Index/@item.OrdersId">查看</a></td>
+                </tr>
+            }
+        </table>
+        @Html.Pager(Model,
+        new PagerOptions
+        {
+            Id = "pager",
+            PageIndexParameterName = "pageIndex",//控制器参数
+            ContainerTagName = "span",//分页容器形式（默认好像是div）
+            CssClass = "pager",//容器css class
+            ShowMorePagerItems = false,//“更多”按钮不显示
+            CurrentPagerItemTemplate = "<span class=\"current\">{0}</span>",//当前按钮 模版
+            DisabledPagerItemTemplate = "<span class=\"disable\">{0}</span>",//不可用按钮 模版
+            PagerItemTemplate = "<span class=\"able\">{0}</span>",//可用按钮 模版
+            FirstPageText = "首页",
+            PrevPageText = "上一页",
+            NextPageText = "下一页",
+            LastPageText = "末页",
+            PageIndexBoxId = "pagebox",
+            GoToButtonId = "goBtn"
+        }
+    )
+
+
+
+
+    </div>
+</form>

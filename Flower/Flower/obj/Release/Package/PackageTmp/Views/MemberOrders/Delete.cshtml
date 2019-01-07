@@ -1,0 +1,69 @@
+﻿@model Flower.Models.Orders
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Major", FormMethod.Post))
+{
+    <div class="titlebar">
+        <div>编辑订单</div>
+    </div>
+    <div class="tb">
+        <table style="width: 60%">
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.OrdersName)</th>
+                <td>
+                    @Html.TextBoxFor(m => m.OrdersName)
+                    @Html.ValidationMessageFor(m => m.OrdersName)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.OrdersPhone)</th>
+                <td>
+                    @Html.TextBoxFor(m => m.OrdersPhone)
+                    @Html.ValidationMessageFor(m => m.OrdersPhone)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.ConsigneeName)</th>
+                <td>
+                    @Html.TextBoxFor(m => m.ConsigneeName)
+                    @Html.ValidationMessageFor(m => m.ConsigneeName)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.ConsigneePhone)</th>
+                <td>
+                    @Html.TextBoxFor(m => m.ConsigneePhone)
+                    @Html.ValidationMessageFor(m => m.ConsigneePhone)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.ConsigneeAddress)</th>
+                <td>
+                    @Html.TextBoxFor(m => m.ConsigneeAddress)
+                    @Html.ValidationMessageFor(m => m.ConsigneeAddress)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.DeliveryMode)</th>
+                <td>
+                    @Html.TextBoxFor(m => m.DeliveryMode)
+                    @Html.ValidationMessageFor(m => m.DeliveryMode)
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <input type="submit" value="提交" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="取消" onclick="window.location.href = '/Major/Index'" />
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
+

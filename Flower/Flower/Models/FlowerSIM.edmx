@@ -1,0 +1,800 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FlowersSIMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="AdminsId" />
+          </Key>
+          <Property Name="AdminsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminsName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AdminsPwd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chat">
+          <Key>
+            <PropertyRef Name="ChatId" />
+          </Key>
+          <Property Name="ChatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChatContent" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ChatCreatTime" Type="datetime" Nullable="false" />
+          <Property Name="MembersId" Type="int" Nullable="false" />
+          <Property Name="SendMemId" Type="int" Nullable="false" />
+          <Property Name="ChatStatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ClassId" />
+          </Key>
+          <Property Name="ClassId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ColorId" />
+          </Key>
+          <Property Name="ColorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ColorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Festival">
+          <Key>
+            <PropertyRef Name="FestivalId" />
+          </Key>
+          <Property Name="FestivalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FestivalName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FlowerKind">
+          <Key>
+            <PropertyRef Name="FlowerKindId" />
+          </Key>
+          <Property Name="FlowerKindId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FlowerKindName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="MembersId" />
+          </Key>
+          <Property Name="MembersId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MembersName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MembersPwd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LoginStatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderGoods">
+          <Key>
+            <PropertyRef Name="OGId" />
+          </Key>
+          <Property Name="OGId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="100" />
+          <Property Name="Picture1" Type="varchar" MaxLength="200" />
+          <Property Name="NowPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Num" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrdersId" />
+          </Key>
+          <Property Name="OrdersId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MembersId" Type="int" Nullable="false" />
+          <Property Name="OrdersName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OrdersPhone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ConsigneeName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ConsigneePhone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ConsigneeAddress" Type="text" Nullable="false" />
+          <Property Name="carOrproduct" Type="int" Nullable="false" />
+          <Property Name="ProductIdList" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreateTime" Type="date" Nullable="false" />
+          <Property Name="DeliveryTime" Type="datetime" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="OrderNumbers" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProductVolume" Type="int" Nullable="false" />
+          <Property Name="Picture1" Type="varchar" MaxLength="200" />
+          <Property Name="Picture2" Type="varchar" MaxLength="200" />
+          <Property Name="Picture3" Type="varchar" MaxLength="200" />
+          <Property Name="Picture4" Type="varchar" MaxLength="200" />
+          <Property Name="Picture5" Type="varchar" MaxLength="200" />
+          <Property Name="Material" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Package" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FlowerLanguage" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="OriginalPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NowPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Inventory" Type="int" Nullable="false" />
+          <Property Name="FestivalId" Type="int" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+          <Property Name="FlowerKindId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShoppingCar">
+          <Key>
+            <PropertyRef Name="CarId" />
+          </Key>
+          <Property Name="CarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="MembersId" Type="int" Nullable="false" />
+          <Property Name="NowPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Num" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="100" />
+          <Property Name="Picture1" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK__Chat__MembersId__15502E78">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MembersId" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="MembersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Color__ClassId__22AA2996">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Color" Type="Self.Color" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ClassId" />
+            </Principal>
+            <Dependent Role="Color">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Festival__ClassI__1ED998B2">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Festival" Type="Self.Festival" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ClassId" />
+            </Principal>
+            <Dependent Role="Festival">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FlowerKin__Class__267ABA7A">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="FlowerKind" Type="Self.FlowerKind" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ClassId" />
+            </Principal>
+            <Dependent Role="FlowerKind">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__MembersI__33D4B598">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MembersId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="MembersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__ColorId__2B3F6F97">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ColorId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Festiva__2A4B4B5E">
+          <End Role="Festival" Type="Self.Festival" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Festival">
+              <PropertyRef Name="FestivalId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="FestivalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__FlowerK__2C3393D0">
+          <End Role="FlowerKind" Type="Self.FlowerKind" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FlowerKind">
+              <PropertyRef Name="FlowerKindId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="FlowerKindId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoppingC__Membe__300424B4">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="ShoppingCar" Type="Self.ShoppingCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MembersId" />
+            </Principal>
+            <Dependent Role="ShoppingCar">
+              <PropertyRef Name="MembersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoppingC__Produ__2F10007B">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ShoppingCar" Type="Self.ShoppingCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="ShoppingCar">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FlowersSIMModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chat" EntityType="Self.Chat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Festival" EntityType="Self.Festival" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlowerKind" EntityType="Self.FlowerKind" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderGoods" EntityType="Self.OrderGoods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoppingCar" EntityType="Self.ShoppingCar" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Chat__MembersId__15502E78" Association="Self.FK__Chat__MembersId__15502E78">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Chat" EntitySet="Chat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Color__ClassId__22AA2996" Association="Self.FK__Color__ClassId__22AA2996">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Color" EntitySet="Color" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Festival__ClassI__1ED998B2" Association="Self.FK__Festival__ClassI__1ED998B2">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Festival" EntitySet="Festival" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FlowerKin__Class__267ABA7A" Association="Self.FK__FlowerKin__Class__267ABA7A">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="FlowerKind" EntitySet="FlowerKind" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__MembersI__33D4B598" Association="Self.FK__Orders__MembersI__33D4B598">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ColorId__2B3F6F97" Association="Self.FK__Product__ColorId__2B3F6F97">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Festiva__2A4B4B5E" Association="Self.FK__Product__Festiva__2A4B4B5E">
+            <End Role="Festival" EntitySet="Festival" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__FlowerK__2C3393D0" Association="Self.FK__Product__FlowerK__2C3393D0">
+            <End Role="FlowerKind" EntitySet="FlowerKind" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoppingC__Membe__300424B4" Association="Self.FK__ShoppingC__Membe__300424B4">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="ShoppingCar" EntitySet="ShoppingCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoppingC__Produ__2F10007B" Association="Self.FK__ShoppingC__Produ__2F10007B">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ShoppingCar" EntitySet="ShoppingCar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FlowersSIMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="AdminsId" />
+          </Key>
+          <Property Name="AdminsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminsName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdminsPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chat">
+          <Key>
+            <PropertyRef Name="ChatId" />
+          </Key>
+          <Property Name="ChatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChatContent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChatCreatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MembersId" Type="Int32" Nullable="false" />
+          <Property Name="SendMemId" Type="Int32" Nullable="false" />
+          <Property Name="ChatStatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK__Chat__MembersId__15502E78" FromRole="Chat" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ClassId" />
+          </Key>
+          <Property Name="ClassId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Self.FK__Color__ClassId__22AA2996" FromRole="Class" ToRole="Color" />
+          <NavigationProperty Name="Festival" Relationship="Self.FK__Festival__ClassI__1ED998B2" FromRole="Class" ToRole="Festival" />
+          <NavigationProperty Name="FlowerKind" Relationship="Self.FK__FlowerKin__Class__267ABA7A" FromRole="Class" ToRole="FlowerKind" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ColorId" />
+          </Key>
+          <Property Name="ColorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.FK__Color__ClassId__22AA2996" FromRole="Color" ToRole="Class" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__ColorId__2B3F6F97" FromRole="Color" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Festival">
+          <Key>
+            <PropertyRef Name="FestivalId" />
+          </Key>
+          <Property Name="FestivalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FestivalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.FK__Festival__ClassI__1ED998B2" FromRole="Festival" ToRole="Class" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__Festiva__2A4B4B5E" FromRole="Festival" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="FlowerKind">
+          <Key>
+            <PropertyRef Name="FlowerKindId" />
+          </Key>
+          <Property Name="FlowerKindId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FlowerKindName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.FK__FlowerKin__Class__267ABA7A" FromRole="FlowerKind" ToRole="Class" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__FlowerK__2C3393D0" FromRole="FlowerKind" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="MembersId" />
+          </Key>
+          <Property Name="MembersId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MembersName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MembersPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LoginStatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Chat" Relationship="Self.FK__Chat__MembersId__15502E78" FromRole="Members" ToRole="Chat" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__MembersI__33D4B598" FromRole="Members" ToRole="Orders" />
+          <NavigationProperty Name="ShoppingCar" Relationship="Self.FK__ShoppingC__Membe__300424B4" FromRole="Members" ToRole="ShoppingCar" />
+        </EntityType>
+        <EntityType Name="OrderGoods">
+          <Key>
+            <PropertyRef Name="OGId" />
+          </Key>
+          <Property Name="OGId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Picture1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NowPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Num" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrdersId" />
+          </Key>
+          <Property Name="OrdersId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MembersId" Type="Int32" Nullable="false" />
+          <Property Name="OrdersName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OrdersPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConsigneeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConsigneePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConsigneeAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="carOrproduct" Type="Int32" Nullable="false" />
+          <Property Name="ProductIdList" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DeliveryTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumbers" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK__Orders__MembersI__33D4B598" FromRole="Orders" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductVolume" Type="Int32" Nullable="false" />
+          <Property Name="Picture1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Picture2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Picture3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Picture4" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Picture5" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Material" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Package" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FlowerLanguage" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OriginalPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NowPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Inventory" Type="Int32" Nullable="false" />
+          <Property Name="FestivalId" Type="Int32" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="FlowerKindId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Self.FK__Product__ColorId__2B3F6F97" FromRole="Product" ToRole="Color" />
+          <NavigationProperty Name="Festival" Relationship="Self.FK__Product__Festiva__2A4B4B5E" FromRole="Product" ToRole="Festival" />
+          <NavigationProperty Name="FlowerKind" Relationship="Self.FK__Product__FlowerK__2C3393D0" FromRole="Product" ToRole="FlowerKind" />
+          <NavigationProperty Name="ShoppingCar" Relationship="Self.FK__ShoppingC__Produ__2F10007B" FromRole="Product" ToRole="ShoppingCar" />
+        </EntityType>
+        <EntityType Name="ShoppingCar">
+          <Key>
+            <PropertyRef Name="CarId" />
+          </Key>
+          <Property Name="CarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="MembersId" Type="Int32" Nullable="false" />
+          <Property Name="NowPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Num" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Picture1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK__ShoppingC__Membe__300424B4" FromRole="ShoppingCar" ToRole="Members" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__ShoppingC__Produ__2F10007B" FromRole="ShoppingCar" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK__Chat__MembersId__15502E78">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MembersId" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="MembersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Color__ClassId__22AA2996">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Color" Type="Self.Color" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ClassId" />
+            </Principal>
+            <Dependent Role="Color">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Festival__ClassI__1ED998B2">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="Festival" Type="Self.Festival" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ClassId" />
+            </Principal>
+            <Dependent Role="Festival">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FlowerKin__Class__267ABA7A">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="FlowerKind" Type="Self.FlowerKind" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="ClassId" />
+            </Principal>
+            <Dependent Role="FlowerKind">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__ColorId__2B3F6F97">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ColorId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Festiva__2A4B4B5E">
+          <End Role="Festival" Type="Self.Festival" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Festival">
+              <PropertyRef Name="FestivalId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="FestivalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__FlowerK__2C3393D0">
+          <End Role="FlowerKind" Type="Self.FlowerKind" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FlowerKind">
+              <PropertyRef Name="FlowerKindId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="FlowerKindId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__MembersI__33D4B598">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MembersId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="MembersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoppingC__Membe__300424B4">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="ShoppingCar" Type="Self.ShoppingCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MembersId" />
+            </Principal>
+            <Dependent Role="ShoppingCar">
+              <PropertyRef Name="MembersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoppingC__Produ__2F10007B">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ShoppingCar" Type="Self.ShoppingCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="ShoppingCar">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FlowersSIMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admins" />
+          <EntitySet Name="Chat" EntityType="Self.Chat" />
+          <EntitySet Name="Class" EntityType="Self.Class" />
+          <EntitySet Name="Color" EntityType="Self.Color" />
+          <EntitySet Name="Festival" EntityType="Self.Festival" />
+          <EntitySet Name="FlowerKind" EntityType="Self.FlowerKind" />
+          <EntitySet Name="Members" EntityType="Self.Members" />
+          <EntitySet Name="OrderGoods" EntityType="Self.OrderGoods" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="ShoppingCar" EntityType="Self.ShoppingCar" />
+          <AssociationSet Name="FK__Chat__MembersId__15502E78" Association="Self.FK__Chat__MembersId__15502E78">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Chat" EntitySet="Chat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Color__ClassId__22AA2996" Association="Self.FK__Color__ClassId__22AA2996">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Color" EntitySet="Color" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Festival__ClassI__1ED998B2" Association="Self.FK__Festival__ClassI__1ED998B2">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Festival" EntitySet="Festival" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FlowerKin__Class__267ABA7A" Association="Self.FK__FlowerKin__Class__267ABA7A">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="FlowerKind" EntitySet="FlowerKind" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ColorId__2B3F6F97" Association="Self.FK__Product__ColorId__2B3F6F97">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Festiva__2A4B4B5E" Association="Self.FK__Product__Festiva__2A4B4B5E">
+            <End Role="Festival" EntitySet="Festival" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__FlowerK__2C3393D0" Association="Self.FK__Product__FlowerK__2C3393D0">
+            <End Role="FlowerKind" EntitySet="FlowerKind" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__MembersI__33D4B598" Association="Self.FK__Orders__MembersI__33D4B598">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoppingC__Membe__300424B4" Association="Self.FK__ShoppingC__Membe__300424B4">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="ShoppingCar" EntitySet="ShoppingCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoppingC__Produ__2F10007B" Association="Self.FK__ShoppingC__Produ__2F10007B">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ShoppingCar" EntitySet="ShoppingCar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FlowersSIMModelStoreContainer" CdmEntityContainer="FlowersSIMEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="FlowersSIMModel.Admins">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="AdminsId" ColumnName="AdminsId" />
+                <ScalarProperty Name="AdminsName" ColumnName="AdminsName" />
+                <ScalarProperty Name="AdminsPwd" ColumnName="AdminsPwd" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chat">
+            <EntityTypeMapping TypeName="FlowersSIMModel.Chat">
+              <MappingFragment StoreEntitySet="Chat">
+                <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+                <ScalarProperty Name="ChatContent" ColumnName="ChatContent" />
+                <ScalarProperty Name="ChatCreatTime" ColumnName="ChatCreatTime" />
+                <ScalarProperty Name="MembersId" ColumnName="MembersId" />
+                <ScalarProperty Name="SendMemId" ColumnName="SendMemId" />
+                <ScalarProperty Name="ChatStatus" ColumnName="ChatStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Class">
+            <EntityTypeMapping TypeName="FlowersSIMModel.Class">
+              <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Color">
+            <EntityTypeMapping TypeName="FlowersSIMModel.Color">
+              <MappingFragment StoreEntitySet="Color">
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Festival">
+            <EntityTypeMapping TypeName="FlowersSIMModel.Festival">
+              <MappingFragment StoreEntitySet="Festival">
+                <ScalarProperty Name="FestivalId" ColumnName="FestivalId" />
+                <ScalarProperty Name="FestivalName" ColumnName="FestivalName" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlowerKind">
+            <EntityTypeMapping TypeName="FlowersSIMModel.FlowerKind">
+              <MappingFragment StoreEntitySet="FlowerKind">
+                <ScalarProperty Name="FlowerKindId" ColumnName="FlowerKindId" />
+                <ScalarProperty Name="FlowerKindName" ColumnName="FlowerKindName" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="FlowersSIMModel.Members">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="MembersId" ColumnName="MembersId" />
+                <ScalarProperty Name="MembersName" ColumnName="MembersName" />
+                <ScalarProperty Name="MembersPwd" ColumnName="MembersPwd" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderGoods">
+            <EntityTypeMapping TypeName="FlowersSIMModel.OrderGoods">
+              <MappingFragment StoreEntitySet="OrderGoods">
+                <ScalarProperty Name="OGId" ColumnName="OGId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Picture1" ColumnName="Picture1" />
+                <ScalarProperty Name="NowPrice" ColumnName="NowPrice" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="FlowersSIMModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrdersId" ColumnName="OrdersId" />
+                <ScalarProperty Name="MembersId" ColumnName="MembersId" />
+                <ScalarProperty Name="OrdersName" ColumnName="OrdersName" />
+                <ScalarProperty Name="OrdersPhone" ColumnName="OrdersPhone" />
+                <ScalarProperty Name="ConsigneeName" ColumnName="ConsigneeName" />
+                <ScalarProperty Name="ConsigneePhone" ColumnName="ConsigneePhone" />
+                <ScalarProperty Name="ConsigneeAddress" ColumnName="ConsigneeAddress" />
+                <ScalarProperty Name="carOrproduct" ColumnName="carOrproduct" />
+                <ScalarProperty Name="ProductIdList" ColumnName="ProductIdList" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OrderNumbers" ColumnName="OrderNumbers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="FlowersSIMModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductVolume" ColumnName="ProductVolume" />
+                <ScalarProperty Name="Picture1" ColumnName="Picture1" />
+                <ScalarProperty Name="Picture2" ColumnName="Picture2" />
+                <ScalarProperty Name="Picture3" ColumnName="Picture3" />
+                <ScalarProperty Name="Picture4" ColumnName="Picture4" />
+                <ScalarProperty Name="Picture5" ColumnName="Picture5" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="FlowerLanguage" ColumnName="FlowerLanguage" />
+                <ScalarProperty Name="OriginalPrice" ColumnName="OriginalPrice" />
+                <ScalarProperty Name="NowPrice" ColumnName="NowPrice" />
+                <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+                <ScalarProperty Name="FestivalId" ColumnName="FestivalId" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="FlowerKindId" ColumnName="FlowerKindId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingCar">
+            <EntityTypeMapping TypeName="FlowersSIMModel.ShoppingCar">
+              <MappingFragment StoreEntitySet="ShoppingCar">
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="MembersId" ColumnName="MembersId" />
+                <ScalarProperty Name="NowPrice" ColumnName="NowPrice" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Picture1" ColumnName="Picture1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

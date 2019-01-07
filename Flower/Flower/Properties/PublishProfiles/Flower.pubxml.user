@@ -1,0 +1,907 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\ppaa-H\Desktop\这才是最终</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/22/2018 21:12:56</publishTime>
+    </File>
+    <File Include="bin/Flower.dll">
+      <publishTime>12/07/2018 01:47:37</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>10/22/2018 21:13:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>10/22/2018 21:13:08</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>10/22/2018 21:13:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>10/22/2018 21:13:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Providers.dll">
+      <publishTime>10/22/2018 21:13:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>10/22/2018 21:13:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>10/22/2018 21:13:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>10/22/2018 21:13:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>10/22/2018 21:13:08</publishTime>
+    </File>
+    <File Include="bin/Webdiyer.MvcPager.dll">
+      <publishTime>10/26/2018 14:24:44</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.resources.dll">
+      <publishTime>10/22/2018 21:13:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Optimization.resources.dll">
+      <publishTime>10/22/2018 21:13:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Providers.resources.dll">
+      <publishTime>10/22/2018 21:13:14</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="Content/Detailed.css">
+      <publishTime>11/28/2018 13:39:36</publishTime>
+    </File>
+    <File Include="Content/home.css">
+      <publishTime>12/06/2018 14:25:24</publishTime>
+    </File>
+    <File Include="Content/logkk.css">
+      <publishTime>12/06/2018 14:26:10</publishTime>
+    </File>
+    <File Include="Content/main.css">
+      <publishTime>12/03/2018 15:43:18</publishTime>
+    </File>
+    <File Include="Content/main2.css">
+      <publishTime>12/07/2018 01:42:47</publishTime>
+    </File>
+    <File Include="Content/manage/manage.css">
+      <publishTime>10/26/2018 14:48:06</publishTime>
+    </File>
+    <File Include="Content/manage/members-manage.css">
+      <publishTime>10/26/2018 14:48:10</publishTime>
+    </File>
+    <File Include="Content/manage/orders-manage.css">
+      <publishTime>10/26/2018 14:48:16</publishTime>
+    </File>
+    <File Include="Content/manage/OrdersList.css">
+      <publishTime>11/30/2018 15:30:53</publishTime>
+    </File>
+    <File Include="Content/manage/product-Edit.css">
+      <publishTime>10/26/2018 14:48:24</publishTime>
+    </File>
+    <File Include="Content/manage/product-manage.css">
+      <publishTime>10/26/2018 14:48:28</publishTime>
+    </File>
+    <File Include="Content/memberorders.css">
+      <publishTime>12/03/2018 02:57:29</publishTime>
+    </File>
+    <File Include="Content/morder.css">
+      <publishTime>11/30/2018 11:57:42</publishTime>
+    </File>
+    <File Include="Content/mss.css">
+      <publishTime>11/30/2018 03:43:39</publishTime>
+    </File>
+    <File Include="Content/msse.css">
+      <publishTime>11/30/2018 03:53:28</publishTime>
+    </File>
+    <File Include="Content/orderindex.css">
+      <publishTime>12/03/2018 13:59:46</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>11/28/2018 10:42:07</publishTime>
+    </File>
+    <File Include="Content/style.css">
+      <publishTime>11/30/2018 05:14:47</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.accordion.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.all.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.autocomplete.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.base.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.button.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.core.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.datepicker.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.dialog.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.progressbar.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.resizable.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.selectable.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.slider.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.tabs.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.theme.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_222222_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_454545_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_888888_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery-ui.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.accordion.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.autocomplete.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.button.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.core.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.datepicker.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.dialog.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.progressbar.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.resizable.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.selectable.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.slider.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.tabs.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
+      <publishTime>10/26/2018 14:35:54</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>10/22/2018 21:12:48</publishTime>
+    </File>
+    <File Include="Image/001.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/0214.jpg">
+      <publishTime>11/30/2018 04:29:58</publishTime>
+    </File>
+    <File Include="Image/08.jpg">
+      <publishTime>10/26/2018 13:48:50</publishTime>
+    </File>
+    <File Include="Image/11枝红玫瑰+德芙心语巧克力98克特价组合套装--红玫瑰11枝，满天星围绕.jpg">
+      <publishTime>11/28/2018 13:21:54</publishTime>
+    </File>
+    <File Include="Image/3.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/4.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/99枝玫瑰赠价值68元德芙心语巧克力98克--33枝戴安娜、66枝红玫瑰、1扎满天星.jpg">
+      <publishTime>11/28/2018 13:21:54</publishTime>
+    </File>
+    <File Include="Image/bannerflower01.jpg">
+      <publishTime>11/29/2018 13:46:28</publishTime>
+    </File>
+    <File Include="Image/bannerflower02.jpg">
+      <publishTime>11/29/2018 13:46:28</publishTime>
+    </File>
+    <File Include="Image/bannerflower03.jpg">
+      <publishTime>11/29/2018 13:46:28</publishTime>
+    </File>
+    <File Include="Image/bannerflower04.jpg">
+      <publishTime>11/29/2018 13:46:28</publishTime>
+    </File>
+    <File Include="Image/bannerflower05.jpg">
+      <publishTime>11/29/2018 13:46:28</publishTime>
+    </File>
+    <File Include="Image/bannerflower06.jpg">
+      <publishTime>11/29/2018 13:46:28</publishTime>
+    </File>
+    <File Include="Image/bannerflower07.jpg">
+      <publishTime>11/29/2018 13:46:28</publishTime>
+    </File>
+    <File Include="Image/beijing.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/bgall.gif">
+      <publishTime>11/30/2018 03:08:23</publishTime>
+    </File>
+    <File Include="Image/buy.png">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/chenyao1.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/cnnic.png">
+      <publishTime>12/03/2018 15:12:17</publishTime>
+    </File>
+    <File Include="Image/cxwz.gif">
+      <publishTime>12/03/2018 15:12:22</publishTime>
+    </File>
+    <File Include="Image/dog1.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/dog2.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/erm.jpg">
+      <publishTime>12/03/2018 15:12:26</publishTime>
+    </File>
+    <File Include="Image/fangdajing.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/flower.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/flowerbg1.jpg">
+      <publishTime>11/29/2018 22:07:54</publishTime>
+    </File>
+    <File Include="Image/flowerIcon.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/hua.jpg">
+      <publishTime>11/04/2018 11:28:28</publishTime>
+    </File>
+    <File Include="Image/hua2.jpg">
+      <publishTime>11/04/2018 11:33:22</publishTime>
+    </File>
+    <File Include="Image/hua3.jpg">
+      <publishTime>11/04/2018 13:51:50</publishTime>
+    </File>
+    <File Include="Image/hua4.jpg">
+      <publishTime>11/04/2018 13:58:32</publishTime>
+    </File>
+    <File Include="Image/hua5.jpg">
+      <publishTime>11/04/2018 15:16:32</publishTime>
+    </File>
+    <File Include="Image/huaban.jpg">
+      <publishTime>11/03/2018 23:15:42</publishTime>
+    </File>
+    <File Include="Image/kefu.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/kefucode.jpg">
+      <publishTime>12/03/2018 15:48:38</publishTime>
+    </File>
+    <File Include="Image/liubianx.jpg">
+      <publishTime>12/06/2018 10:51:36</publishTime>
+    </File>
+    <File Include="Image/meigui2.jpg">
+      <publishTime>11/04/2018 10:42:58</publishTime>
+    </File>
+    <File Include="Image/meigui3.jpg">
+      <publishTime>11/04/2018 15:46:48</publishTime>
+    </File>
+    <File Include="Image/meiguihua1.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/meiguihua2.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/meihua.jpg">
+      <publishTime>11/04/2018 14:05:14</publishTime>
+    </File>
+    <File Include="Image/meihua2.jpg">
+      <publishTime>11/04/2018 14:07:04</publishTime>
+    </File>
+    <File Include="Image/pay.jpg">
+      <publishTime>12/03/2018 15:12:24</publishTime>
+    </File>
+    <File Include="Image/red.jpg">
+      <publishTime>11/04/2018 15:43:44</publishTime>
+    </File>
+    <File Include="Image/shoppingcar.png">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/slide_01.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/slide_02.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/slide_03.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/slide_04.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/smyz.gif">
+      <publishTime>12/03/2018 15:12:31</publishTime>
+    </File>
+    <File Include="Image/wchar.jpg">
+      <publishTime>12/03/2018 15:12:29</publishTime>
+    </File>
+    <File Include="Image/xiantiao.jpg">
+      <publishTime>12/06/2018 10:51:36</publishTime>
+    </File>
+    <File Include="Image/xingxing.jpg">
+      <publishTime>12/06/2018 13:58:20</publishTime>
+    </File>
+    <File Include="Image/xingxing2.jpg">
+      <publishTime>12/06/2018 14:01:40</publishTime>
+    </File>
+    <File Include="Image/yudi.jpg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="Image/一往情深--9枝红玫瑰，勿忘我适量.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/一心一意--玫瑰11枝，粉色勿忘我0.3扎.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/一缕清香--向日葵3枝，白色洋桔梗0.5扎.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/不变的心--戴安娜玫瑰66枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/不变的承诺--99枝红玫瑰.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/优雅馨情--紫色康乃馨66枝，粉色多头康乃馨15枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/你的香气--戴安娜粉玫瑰9枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/假日公主--戴安娜粉玫瑰11枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/圆满--粉百合2枝、红玫瑰9枝、红色康乃馨15枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/天秤座守护花--香槟玫瑰11枝、白百合3枝、蕾丝3枝、银叶菊8枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/幸福满溢--多头百合2枝，卡罗拉玫瑰8枝，红太阳花6枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/幸福绽放--粉色康乃馨19枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/忘情巴黎--33枝红玫瑰.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/感激--29枝红康乃馨,2枝粉百合.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/我只钟情你--香槟玫瑰11枝、白色小雏菊3枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/暖暖的问候--苏醒11枝、白百合2枝、浅粉色康乃馨9枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/月光女神--白玫瑰11枝，绿色桔梗5枝，小菊3枝，白色石竹梅4枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/柔情蜜意--11枝戴安娜粉玫瑰，白百合2枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/浪漫香气--11枝冷美人紫玫瑰，粉百合2枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/清明节花束A-- 12枝白色玫瑰.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/清明节花束B--白玫瑰，白百合，白菊或白康乃馨点缀.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/温情祝福--紫红色康乃馨9枝，粉色多头香水百合2枝，紫色桔梗4枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/温馨问候--香槟玫瑰9枝、白百合2枝、粉色康乃馨13枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/灿烂的笑容--向日葵2枝，金枝玉叶玫瑰13枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/爱你如初--雪山白玫瑰66枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/爱的小确幸--戴安娜粉玫瑰21枝，粉色桔梗5枝，石竹梅7枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/牵手一生--红玫瑰19枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/甜美公主--白玫瑰22枝，粉佳人粉玫瑰14枝，粉色桔梗5枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/用心爱你--99枝：33枝戴安娜＋66枝红玫瑰.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/留住好时光--粉绣球1枝，粉雪山玫瑰6枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/真爱如初--雪山玫瑰11枝、深紫色勿忘我0.3扎.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/真诚祝愿--花篮.jpg">
+      <publishTime>11/28/2018 13:21:52</publishTime>
+    </File>
+    <File Include="Image/眷念--戴安娜粉玫瑰33枝，石竹梅围绕.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/缅怀--白菊，黄菊及白百合.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/缘份--11枝红玫瑰,2枝多头白香水百合.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/追忆--白菊，白玫瑰，白百合.jpg">
+      <publishTime>11/28/2018 13:21:52</publishTime>
+    </File>
+    <File Include="Image/阳光海岸--19枝香槟玫瑰.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/青青子衿--白色多头香水百合6枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/风一样的女子--向日葵3枝，戴安娜粉玫瑰3枝.jpg">
+      <publishTime>11/28/2018 13:21:55</publishTime>
+    </File>
+    <File Include="Image/香槟玫瑰19枝，勿忘我适量.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="Image/馨情无限--戴安娜玫瑰11枝，红色康乃馨11支，红色石竹梅4枝.jpg">
+      <publishTime>11/28/2018 13:21:51</publishTime>
+    </File>
+    <File Include="lib/bootstrap/css/bootstrap-theme.css">
+      <publishTime>10/23/2018 09:12:54</publishTime>
+    </File>
+    <File Include="lib/bootstrap/css/bootstrap-theme.css.map">
+      <publishTime>10/23/2018 09:12:54</publishTime>
+    </File>
+    <File Include="lib/bootstrap/css/bootstrap-theme.min.css">
+      <publishTime>10/23/2018 09:12:54</publishTime>
+    </File>
+    <File Include="lib/bootstrap/css/bootstrap-theme.min.css.map">
+      <publishTime>10/23/2018 09:12:54</publishTime>
+    </File>
+    <File Include="lib/bootstrap/css/bootstrap.css">
+      <publishTime>10/23/2018 09:12:54</publishTime>
+    </File>
+    <File Include="lib/bootstrap/css/bootstrap.css.map">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/css/bootstrap.min.css">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/css/bootstrap.min.css.map">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/js/bootstrap.js">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/js/bootstrap.min.js">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/bootstrap/js/npm.js">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/css/font-awesome.css">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/css/font-awesome.min.css">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/fonts/fontawesome-webfont.eot">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/fonts/fontawesome-webfont.svg">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/fonts/FontAwesome.otf">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/HELP-US-OUT.txt">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/animated.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/bordered-pulled.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/core.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/fixed-width.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/font-awesome.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/icons.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/larger.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/list.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/mixins.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/path.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/rotated-flipped.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/screen-reader.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/stacked.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/less/variables.less">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/font-awesome.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_animated.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_bordered-pulled.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_core.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_fixed-width.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_icons.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_larger.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_list.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_mixins.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_path.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_rotated-flipped.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_screen-reader.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_stacked.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/font-awesome-4.7.0/scss/_variables.scss">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/jquery/jquery.js">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/jquery/jquery.min.js">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/jquery/jquery.min.map">
+      <publishTime>10/23/2018 09:12:56</publishTime>
+    </File>
+    <File Include="lib/Webdiyer.MvcPager.dll">
+      <publishTime>10/26/2018 14:24:44</publishTime>
+    </File>
+    <File Include="Models/FlowerSIM.edmx.diagram">
+      <publishTime>12/03/2018 16:13:12</publishTime>
+    </File>
+    <File Include="Models/FlowersSIM.edmx.diagram">
+      <publishTime>10/24/2018 10:18:40</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>10/22/2018 21:13:14</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.js">
+      <publishTime>10/22/2018 21:13:02</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.min.js">
+      <publishTime>10/22/2018 21:13:02</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.js">
+      <publishTime>10/23/2018 09:13:18</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.24.js">
+      <publishTime>10/22/2018 21:13:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.24.min.js">
+      <publishTime>10/22/2018 21:13:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>10/22/2018 21:13:06</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>10/22/2018 21:13:06</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>10/22/2018 21:13:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>10/22/2018 21:13:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>10/22/2018 21:13:06</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>10/22/2018 21:13:06</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.debug.js">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.js">
+      <publishTime>10/22/2018 21:13:12</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>10/22/2018 21:13:06</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>10/22/2018 21:13:06</publishTime>
+    </File>
+    <File Include="Views/CustomerServer/Index.cshtml">
+      <publishTime>12/06/2018 17:41:12</publishTime>
+    </File>
+    <File Include="Views/Home/AllFlowers.cshtml">
+      <publishTime>12/06/2018 19:06:39</publishTime>
+    </File>
+    <File Include="Views/Home/Detailed.cshtml">
+      <publishTime>12/06/2018 21:37:20</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>12/06/2018 18:59:41</publishTime>
+    </File>
+    <File Include="Views/Home/Index1.cshtml">
+      <publishTime>11/12/2018 11:39:48</publishTime>
+    </File>
+    <File Include="Views/Home/List.cshtml">
+      <publishTime>12/07/2018 01:03:21</publishTime>
+    </File>
+    <File Include="Views/Home/Search.cshtml">
+      <publishTime>11/30/2018 00:02:38</publishTime>
+    </File>
+    <File Include="Views/Login/LoginAndRigister.cshtml">
+      <publishTime>12/07/2018 01:33:27</publishTime>
+    </File>
+    <File Include="Views/Login/LoginOrRigister.cshtml">
+      <publishTime>12/07/2018 00:39:18</publishTime>
+    </File>
+    <File Include="Views/Manage/Index.cshtml">
+      <publishTime>11/28/2018 17:36:29</publishTime>
+    </File>
+    <File Include="Views/Manage/MembersAdd.cshtml">
+      <publishTime>12/03/2018 16:11:10</publishTime>
+    </File>
+    <File Include="Views/Manage/MembersEdit.cshtml">
+      <publishTime>12/03/2018 16:11:15</publishTime>
+    </File>
+    <File Include="Views/Manage/MembersManage.cshtml">
+      <publishTime>12/03/2018 16:16:36</publishTime>
+    </File>
+    <File Include="Views/Manage/OrdersList.cshtml">
+      <publishTime>12/07/2018 01:30:47</publishTime>
+    </File>
+    <File Include="Views/Manage/OrdersManage.cshtml">
+      <publishTime>12/03/2018 16:11:29</publishTime>
+    </File>
+    <File Include="Views/Manage/ProductAdd.cshtml">
+      <publishTime>12/03/2018 16:11:44</publishTime>
+    </File>
+    <File Include="Views/Manage/ProductEdit.cshtml">
+      <publishTime>12/03/2018 16:11:49</publishTime>
+    </File>
+    <File Include="Views/Manage/ProductManage.cshtml">
+      <publishTime>12/03/2018 16:16:44</publishTime>
+    </File>
+    <File Include="Views/MemberOrders/Add.cshtml">
+      <publishTime>12/07/2018 01:33:06</publishTime>
+    </File>
+    <File Include="Views/MemberOrders/Delete.cshtml">
+      <publishTime>11/28/2018 10:15:49</publishTime>
+    </File>
+    <File Include="Views/MemberOrders/Index.cshtml">
+      <publishTime>12/06/2018 14:32:39</publishTime>
+    </File>
+    <File Include="Views/MemberOrders/OrderIndex.cshtml">
+      <publishTime>12/06/2018 14:28:21</publishTime>
+    </File>
+    <File Include="Views/Personal/Index.cshtml">
+      <publishTime>12/06/2018 14:57:54</publishTime>
+    </File>
+    <File Include="Views/Personal/MenberEdit.cshtml">
+      <publishTime>11/30/2018 03:50:35</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>10/22/2018 21:12:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>11/30/2018 16:13:26</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutPage1.cshtml">
+      <publishTime>12/07/2018 01:46:00</publishTime>
+    </File>
+    <File Include="Views/ShopCar/Index.cshtml">
+      <publishTime>12/06/2018 15:13:18</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>10/22/2018 21:12:48</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>10/22/2018 21:12:48</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/07/2018 01:47:39</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

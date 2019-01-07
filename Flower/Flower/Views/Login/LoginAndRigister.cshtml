@@ -1,0 +1,70 @@
+﻿@model Flower.Models.Members
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/home.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <title>LoginOrRigister</title>
+
+</head>
+<body>
+    <h1 style="text-align:center;height:80px; color:#eac9f6;margin-top:100px;">随缘鲜花网，给你最好的鲜花和服务!</h1>
+    <form method="post" action="/Login/Register" id="res" class="logform">
+        <div class="logtab">
+            <div class="log_text" style="height: 60px; font-size:28px; font-weight:bold; color:gold;margin-left:50px;"><span style="line-height:60px;">注&nbsp;&nbsp;&nbsp;&nbsp;册</span></div>
+            <div class="clear" style="margin-left:40px;"></div>
+            <div style="text-align:center;height:60px; margin-top:30px;">
+                <div class="list">
+                    <table class="listtb" style="width: 360px;height:180px;background-color:white;opacity:0.7;border-radius:10px;">
+                        <tr style="height:50px;">
+                            <th>@Html.DisplayNameFor(m => m.MembersName)</th>
+                            <td style="height: 30px; border-radius: 5px; width: 100px;">
+                                @Html.TextBoxFor(m => m.MembersName)<br />
+                                @Html.ValidationMessageFor(m => m.MembersName)
+                            </td>
+                        </tr>
+                        <tr style="height:50px;">
+                            <th>@Html.DisplayNameFor(m => m.MembersPwd)</th>
+                            <td style="height: 30px; border-radius: 5px; width: 100px;">
+                                @Html.PasswordFor(m => m.MembersPwd)<br />
+                                @Html.ValidationMessageFor(m => m.MembersPwd)
+                            </td>
+                        </tr>
+                        <tr style="height:50px;">
+                            <th style="height: 30px; border-radius: 5px; width: 100px;">@Html.DisplayNameFor(m => m.ConfirmPwd)</th>
+                            <td>
+                                @Html.PasswordFor(m => m.ConfirmPwd)<br />
+                                @Html.ValidationMessageFor(m => m.ConfirmPwd)
+                            </td>
+                        </tr>
+                        <tr style="height:50px;">
+                            <th style="height: 30px; border-radius: 5px; width: 100px;">@Html.DisplayNameFor(m => m.Gender)</th>
+                            <td>
+                                @Html.RadioButtonFor(m => m.Gender, 0)男
+                                @Html.RadioButtonFor(m => m.Gender, 1)女<br />
+                                @Html.ValidationMessageFor(m => m.Gender)
+                            </td>
+                        </tr>
+                        <tr style="height:50px;">
+                            <th></th>
+                            <td>
+                                <input type="submit" value="注册" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="button" value="取消" onclick="window.location.href = '/Home/Index'" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

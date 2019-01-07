@@ -1,0 +1,60 @@
+﻿@model Flower.Models.Members
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/logkk.css" rel="stylesheet" />
+    <title>LoginAndRigister</title>
+</head>
+<body>
+    <h1 style="text-align: center; height: 80px; color: #eac9f6; margin-top: 100px; ">随缘鲜花网，给你最好的鲜花和服务!</h1>
+    <form class="logform" action="Login/Login" method="post" style="position:relative;">
+        <div class="logtab">
+            <div class="log_text" style="height: 60px; font-size:28px; font-weight:bold; color:gold;margin-left:50px;"><span style="line-height:60px;">登&nbsp;&nbsp;&nbsp;&nbsp;录</span></div>
+            <div class="clear" style="margin-left:40px;"></div>
+            <div style="text-align:center;height:60px; margin-top:30px;">
+                <input type="text" name="membername" id="mbername" value="abc321" style="height: 25px;  height:30px; width: 200px;" placeholder="请输入用户名" />
+
+            </div>
+            <div style="text-align: center ;height:60px;">
+                <input type="password" name="memberpwd" id="mberpwd" value="123456" style="height: 25px;  height: 30px; width: 200px;" placeholder="请输入密码" />
+            </div>
+            <div style="text-align: center; height:60px;">
+                <input type="text" id="vcode" name="vcode" style="height:30px;width:90px;" placeholder="请输入验证码" />
+                <img id="vcodeimg" src="/Login/GetVcode" style="vertical-align: middle; cursor:pointer" onclick="changeVcode()" />
+
+            </div>
+            <div style="text-align: center; height:60px;">
+
+                <input type="checkbox" name="isremember" />
+                <span style="color:black;font-size:12px;">是否记住信息</span>
+                <div>
+                    <input type="button" value="注册新用户" onclick="window.location.href = '/Login/LoginAndRigister'" style="font-size:12px;" />
+                </div>
+            </div>
+            <div style="text-align: center; height: 60px;">
+
+                <input type="submit" value="登录" style="width: 80px; height: 30px;" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" value="取消" onclick="window.location.href = '/Home/Index'" style="width:80px; height:30px;" />
+
+            </div>
+        </div>
+    </form>
+    
+    <script>
+        function changeVcode() {
+            //1、获取验证码图片元素
+            var obj = document.getElementById("vcodeimg")
+            //2、元素的src属性继续指向/Home/GetVcode
+            //注意：因为浏览器是有缓存机制的,所以需要添加一个随机值
+            obj.src = "/Login/GetVcode?" + Math.random();
+        }
+    </script>
+</body>
+</html>

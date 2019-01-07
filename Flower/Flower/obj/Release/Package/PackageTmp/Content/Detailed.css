@@ -1,0 +1,184 @@
+
+.Content{
+    background-color: white;
+    width: 1000px;
+    height: 600px;
+    border: solid 1px #000;
+    margin: 100px auto;
+
+}
+/*图片*/
+.picture{
+    background-image: url("Jellyfish.jpg");
+    width: 400px;
+    height: 513px;
+    position: relative;
+    float: left;
+    display: block;
+    margin: 30px;
+    border: solid 1px #DCDCDC;
+}
+/*介绍*/
+.title{
+    width:500px;
+    height:270px;
+    /*border: solid 1px #000;*/
+    margin-top: 10px;
+    float: right;
+}
+    .title span {
+        font-size:16px;
+        color:#696969;
+    }
+.title .productName {
+        font-size:28px;
+        color:black;
+    }
+.title ,.material,.package, .flowerlanguage {
+        color:black;
+        font-size:20px;
+         padding-top:20px;
+         margin-right:30px;
+         font-weight:bold;
+    }
+/*价格*/
+.price {
+        float:right;
+        /*margin-top:10px;*/
+        margin-left:30px;
+        margin-right:30px;
+        width: 470px;
+        height:100px;
+        text-align:left;
+        /*border:solid 1px #000;*/
+        background-color:#F5F5F5;
+    }
+.price .price1 {
+       padding-top:15px;
+    } 
+.price .price1 b {
+    font-size:16px;
+        }
+.price1, .price2 {
+    padding-left:10px;
+}
+ .price .price1, .price2 em {
+            font-size:15px;
+        }
+ .price2 b, .price2 span {
+           color:#ff5417;
+           font-size:30px;
+        }
+ /*销量*/
+.Content .hot {
+  float:left;
+  width:400px;
+  height:30px;
+  margin-left:80px;
+  margin-right:20px;
+  /*border: solid 1px #000;*/
+  
+ 
+}
+.Content .hot b{
+    font-size:12px;
+    margin-left:50px;
+}
+.Content .hot span {
+    color:#ff5417;
+}
+.Content .hot b, span {
+   line-height:30px;
+    }
+.Content .line{
+   float:right;
+   width:510px;
+   height:0;
+   border:solid 1px #DCDCDC;
+   margin-right:20px;
+     /*#DCDCDC*/
+}
+.productnum {
+    width:500px;
+    height:80px;
+    float:left;
+   
+}
+.productnum .num {
+        font-size:20px;
+        position:relative;
+        display:block;
+        float:left;
+       line-height:80px;
+        margin-left:50px;
+    }
+.productnum {
+    line-height:80px;
+}
+    .productnum form {
+        display:block;
+        float:left;
+    }
+ .productnum a {
+     text-decoration:none;
+     font-size:30px;
+     line-height:80px;
+    }
+.productnum form input {
+    text-align:center;
+    height:30px;
+    
+    }
+ .productnum .stock {
+     /*border: solid 1px #000;*/
+     float:right;
+     left:100px;
+     font-size:12px;
+     margin-left:20px;
+     line-height:80px;
+    }
+    .productnum .stock span {
+        color:#ff5417;
+    }
+
+.xian {
+    width:600px;
+    height:60px;
+    float:right;
+    margin-top:0px;
+}
+.shopbuy {
+    /*border: solid 1px #000;*/
+    width:555px;
+    height:60px;
+    float:right;
+    margin-top:0px;
+}
+.shopbuy #buy {
+        width:168px;
+        height:53px;
+        float:left;
+    }
+    .shopbuy #shoppingcar{
+        width:168px;
+        height:53px;
+        float:left;
+    } 
+.shopbuy #buy {
+        /*background-image:url(../image/buy.png);*/
+        margin-left:50px;
+    }
+.shopbuy #shoppingcar {
+        /*background-image:url(../image/shoppingcar.png);*/
+        float:right;
+        margin-top:1px;
+        margin-right:130px;
+        position:relative;
+    }
+
+
+
+
+
+
+

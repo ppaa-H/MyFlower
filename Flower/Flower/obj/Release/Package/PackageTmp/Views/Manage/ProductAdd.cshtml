@@ -1,0 +1,115 @@
+﻿@model Flower.Models.Product
+@using Flower.Models;
+@{
+    ViewBag.Title = "鲜花后台管理页面-商品信息增加";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    <link href="~/Content/manage/product-Edit.css" rel="stylesheet" />
+</asp:Content>
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#imgFile").change(function () {
+            if ($.browser.msie) {
+                $("#img0").attr("src", $(this).val())
+            } else {
+                var objUrl = getObjectURL(this.files[0]);
+                console.log("objUrl=" + objUrl);
+                if (objUrl) {
+                    $("#img0").attr("src", objUrl);
+                }
+            }
+        })
+        //建立一個可存取到該file的url
+        function getObjectURL(file) {
+            var url = null;
+            if (window.createObjectURL != undefined) {
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) {
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) {
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+    })
+</script>
+
+<form action="/Manage/ProductAdd" method="post" enctype="multipart/form-data">
+    <div class="product-detail" id="detail">
+        <div class="title" style="padding:15px 0;">商品信息增加</div>
+        <input type="hidden" name="productid" />
+        <table style="border-collapse:collapse;">
+            <tr>
+                <th>商品名称</th>
+                <td>@Html.TextBoxFor(p => p.ProductName, new { size = "40" })</td>
+            </tr>
+            <tr>
+                <td colspan="2">商品类型</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(p => p.FestivalId)</th>
+                <td>
+                    @Html.DropDownListFor(p => p.FestivalId, ViewBag.Festival as SelectList, new { style = "width:128px;text-align:center;text-align-last: center;font-size:20px;" })
+                    @Html.ValidationMessageFor(p => p.FestivalId)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(p => p.ColorId)</th>
+                <td>
+                    @Html.DropDownListFor(p => p.ColorId, ViewBag.Color as SelectList, new { style = "width:128px;text-align:center;text-align-last: center;font-size:20px;" })
+                    @Html.ValidationMessageFor(p => p.ColorId)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(p => p.FlowerKindId)</th>
+                <td>
+                    @Html.DropDownListFor(p => p.FlowerKindId, ViewBag.FlowerKind as SelectList, new { style = "width:128px;text-align:center;text-align-last: center;font-size:20px;" })
+                    @Html.ValidationMessageFor(p => p.FlowerKindId)
+                </td>
+            </tr>
+
+            <tr>
+                <th>商品图片</th>
+                <td>
+                    <input type="file" name="imgFile" id="imgFile" class="file0" />
+                    <img src="" alt="" id="img0" width="200" height="100" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>@Html.DisplayNameFor(p => p.Material)</th>
+                <td>@Html.TextBoxFor(p => p.Material, new { size = "40" })</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(p => p.Package)</th>
+                <td>@Html.TextAreaFor(p => p.Package, new { style = "width:403px;height:50px;" })</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(p => p.FlowerLanguage)</th>
+                <td>@Html.TextAreaFor(p => p.FlowerLanguage, new { style = "width:403px;height:68px;" })</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(p => p.OriginalPrice)</th>
+                <td>¥@Html.TextBoxFor(p => p.OriginalPrice, new { size = "39" })</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(p => p.NowPrice)</th>
+                <td>¥@Html.TextBoxFor(p => p.NowPrice, new { size = "39" })</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(p => p.Inventory)</th>
+                <td>@Html.TextBoxFor(p => p.Inventory, new { size = "40" })</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="提交" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="取消" onclick="window.location.href = '/Manage/ProductManage'" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    @*}*@
+</form>

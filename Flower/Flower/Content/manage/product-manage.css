@@ -1,0 +1,17 @@
+section .content table {
+    width:100%;
+}
+section .content table tr {
+    height:40px;
+}
+section .content table td {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+
+}
+
+section .content table tr td a {
+    color:blue;
+    text-decoration:none;
+}

@@ -1,0 +1,174 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>客服中心</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <style>
+        .main {
+            width: 600px;
+            height: 850px;
+            border-radius: 50px;
+            position: relative;
+            background: url(/Image/xiantiao.jpg);
+            float: left;
+            position: absolute;
+            right: 0;
+        }
+
+            .main .members {
+                position: absolute;
+                width: 100px;
+                height: 850px;
+                box-sizing: border-box;
+                top: 0;
+                left: -100px;
+                display: none;
+                background-color: #ba9595;
+            }
+
+            .main .top {
+                width: 600px;
+                height: 10%;
+                border-bottom: 1px solid #808080;
+                box-sizing: border-box;
+                line-height: 5%;
+                font-size: 20px;
+            }
+
+            .main .content {
+                width: 600px;
+                height: 60%;
+                border-bottom: 1px solid gray;
+                box-sizing: border-box;
+                overflow-y: scroll;
+            }
+
+            .main .bottom {
+                width: 600px;
+                height: 30%;
+            }
+    </style>
+    <script>
+        window.onload = function name() {
+            members();
+        }
+        function members()//客服获取有聊天的用户的列表
+        {
+            var name = "@Session["LoginUser"]"
+            if (name == "kefu") {
+                $('.members').show();
+                $.ajax({
+                    url: "/CustomerServer/getMembersId",
+                    type: 'post',
+                    dataType: 'json',
+                    cache: false,
+                    contentType: 'application/json',
+                    success: function (result) {
+                        lis = ''
+                        var j = 0
+                        for(var i = 0;i<result.length;i=i+2)
+                        {
+                            lis += '<div id=ID' + j + ' onclick = ChangeId(' + result[i] + ',' + j + ',"' + result[i + 1] + '") style="width:90%;height:40px;margin-left:5%;text-align:center;line-height:40px;">' + result[i + 1] + '</div>'
+                            j++;
+                        }
+
+                        $('.members').html(lis)
+	                    $('#manager').show();
+                        getContent()
+                    }
+                })
+            }
+            else {
+                $('#Main').css("width","1200px")
+                getContent()
+            }
+        }
+        function ChangeId(id,j,name)
+        {
+            $('.members div').eq(j).css("background-color", "orange")
+            $('.members div').not($('.members div').eq(j)).css("background-color", "white")
+            $('#id').html(id)
+            $('.top').html(name)
+        }
+        setInterval(getContent, 1000);
+        setInterval(members, 1500);
+            function getContent() {
+                var id = parseInt($('#id').html())
+                var Id = @Session["LoginId"]
+                $.ajax({
+                    url: "/CustomerServer/getContent",
+                    data:JSON.stringify({id:id}),
+                    type: 'post',
+                    dataType: 'json',
+                    cache: false,
+                    contentType: 'application/json',
+                    success: function (result) {
+                        lis = ''
+                        for (var i = 0; i < result.length; i = i + 4)
+                        {
+                            if (result[i] != Id)
+                            {
+                                lis += '<div style="width:100%;height:40px;margin-right: 0%;position:relative;margin-bottom:10px;margin-top:5px;">'
+                                lis += '<div style="width:120px;height:8px;font-size:10px;margin:3px auto;text-align:center;line-height:8px;">' + result[i + 3] + '</div>'
+                                lis += '<div style="width:10%;height:100%;float:left;position:absolute;left:2%;text-align:left;">'+result[i+1]+'</div>'
+                                lis += '<div style="float:left;position:absolute;left:14%;text-align:left;border:1px solid black;border-radius:5px;padding:2px;">' + result[i + 2] + '</div>'
+                                lis += '</div>'
+                            }
+                            else {
+                                lis += '<div style="width:100%;height:40px;margin-left: 0%;position:relative;margin-bottom:10px;margin-top:5px;background-color:#eee;">'
+                                lis += '<div style="width:120px;height:8px;font-size:10px;margin:3px auto;text-align:center;line-height:8px;">' + result[i + 3] + '</div>'
+                                lis += '<div style="width:10%;height:100%;float:right;position:absolute;right:2%;text-align:right;">' + result[i + 1] + '</div>'
+                                lis += '<div style="float:right;position:absolute;right:14%;text-align:right;border:1px solid black;border-radius:5px;padding:2px;background-color:yellowgreen;">' + result[i + 2] + '</div>'
+                                lis += '</div>'
+                            }
+                        }
+                        $('.content').html(lis)
+                    }
+                })
+            }
+            function AddChat()
+            {
+                var SendMemId = parseInt($('#id').html())
+                var SendContent = document.getElementById("SendContent").value;
+                $.ajax({
+                    url: "/CustomerServer/SendContent",
+                    type: 'Post',
+                    data: JSON.stringify({ "SendContent": SendContent, SendMemId: SendMemId }),
+                    dataType: 'json',
+                    cache: false,
+                    contentType: 'application/json',
+                    success: function (result) {
+                        document.getElementById("SendContent").value = ''
+                    }
+                })
+            }
+    </script>
+</head>
+<body style="background-color:yellowgreen">
+    <div id="Main" style="width:1800px;height:850px;position:relative;">
+        <div id="manager" style="float:left;width:1200px;height:850px;position:absolute;left:-100px;" hidden>
+            <iframe src="/Manage/Index" name="myframe" width="1200" height="850" scrolling="No" frameborder="0" id="myframe"></iframe>
+        </div>
+        <div id="id" style="color:black;" hidden>1</div>
+        <div id="scroll" hidden>0</div>
+        <div class="main">
+            <div class="members" style="background-color:white;"></div>
+            <div class="top" style="background-color: white; text-align: center; line-height: 60px; color: green; font-size: 20px;">
+                客服
+            </div>
+            <div class="content" style="background-color:white;">
+            </div>
+            <div class="bottom" style="background-color:white;">
+                <textarea id="SendContent" style="width:94%;height:55%;padding:3%;border:none;" cols="50" rows="4"></textarea>
+                <button style="width:50%;height:15%;margin-left:25%;margin-top:1%;background-color:green;border-radius:10px;color:white;" onclick="AddChat()">发送</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

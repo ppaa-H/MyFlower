@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />*@ 
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/main2.css" rel="stylesheet" />
+    <script>
+        function Search() {
+            var Search = $('#Search').val()
+            window.location.href = "/Home/Search?search=" + Search + ""
+        }
+        @*function Out()
+        {
+            "@Session["LoginUser"]" = ""
+            window.location.url = "/Login/LoginOrRigister"
+        }*@
+        $(document).ready(function () {
+            var name = "@Session["LoginUser"]";
+            if (name == "") {
+                $('#login').show()
+            }
+            else {
+                $('#login').html('<a href="/Login/Logout">退出</a>')
+                //$('#login').click(function () {
+                //    window.location.href = "/Login/LoginOrRigister"
+                //})
+            }
+            $.ajax({
+                url: "/Home/givefestival",
+                type: 'Post',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                success: function (result) {
+                    lis1 = ''
+                    for (var i = 0; i < result.length; i = i + 2) {
+                        lis1 += '<li class="Class"><a href=/Home/List?table=Festival&Id=' + result[i] + '>' + result[i + 1] + '</a></li>'
+                    }
+                    $('.festival').html(lis1)
+                }
+            })
+            $.ajax({
+                url: "/Home/givecolor",
+                type: 'Post',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                success: function (result) {
+                    lis1 = ''
+                    for (var i = 0; i < result.length; i = i + 2) {
+                        lis1 += '<li><a href=/Home/List?table=Color&Id=' + result[i] + '>' + result[i + 1] + '</a></li>'
+                    }
+                    $('.color').html(lis1)
+                }
+            })
+            $.ajax({
+                url: "/Home/giveflowerkind",
+                type: 'Post',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                success: function (result) {
+                    lis1 = ''
+                    for (var i = 0; i < result.length; i = i + 2) {
+                        lis1 += '<li><a href=/Home/List?table=FlowerKind&Id=' + result[i] + '>' + result[i + 1] + '</a></li>'
+                    }
+                    $('.flowerkind').html(lis1)
+                }
+            })
+        })
+
+        function iflogin(a) {
+            var obj = "@Session["LoginUser"]";
+            if (obj == "") {
+                alert("您还未登录。请先登录后再进行相关操作！")
+                window.location.href = "/Login/LoginOrRigister";
+            }
+            else {
+                if (a == 1) {
+                    window.location.href = "/ShopCar/Index";
+                }
+                if (a == 2) {
+                    window.location.href = "/MemberOrders/OrderIndex";
+                }
+                if (a == 3) {
+                    window.location.href = "/Personal/Index";
+                }
+            }
+        }
+    </script>
+    <style>
+        .festival li, flowerkind li, .color li {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="navbar-fixed-top">
+
+        <nav class="navbar navbar-itcast navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button id="btn" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_list" aria-expanded="false">
+                        <span class="sr-only">切换菜单</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div id="nav_list" class="collapse navbar-collapse container">
+                    <ul class="nav navbar-nav">
+                        <li class="logo">
+                            <a href="/Home/Index"><img src="~/Image/flower.jpg" alt=""></a>
+                        </li>
+                        <li class="all">
+                            <a href="/Home/AllFlowers">所有鲜花</a>
+                        </li>
+                        <li>
+                            <a href="#">礼物鲜花</a>
+                            <ul class="festival"></ul>
+                        </li>
+                        <li>
+                            <a href="#">鲜花颜色</a>
+                            <ul class="color"></ul>
+                        </li>
+                        <li>
+                            <a href="#">鲜花种类</a>
+                            <ul class="flowerkind"></ul>
+                        </li>
+
+                        <li onclick="iflogin(1)"><a>购物车</a></li>
+                        <li onclick="iflogin(2)"><a>我的订单</a></li>
+                        <li id="login" hidden><a href="/Login/LoginOrRigister">登录|注册</a></li>
+                        <li style="width: 180px; height: 30px; border: 1px solid gray; border-radius: 15px; overflow: hidden; margin-top: 22px;position:relative;">
+                            <input id="Search" type="text" style="width:180px;height:30px;margin-top:-1px;margin-left:-1px;padding-left:10px;" />
+                            <img src="~/Image/fangdajing.jpg" onclick="Search()" style="position:absolute;width:24px;height:24px;right:1px;top:2px;" />
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right hidden-sm">
+                        <li onclick="iflogin(3)"><a><i class="fa fa-user"></i> 个人中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+    <div style="width: 100%; background-color: #f2f2f2;">
+        <section class="bottom" style="width: 1200px; margin: 0 auto; height: 300px; z-index: 5; background-color: #f2f2f2; display: block; padding-top: 20px;">
+            <div class="footer" id="footer">
+                <div class="footer-nav">
+
+
+                    <dl>
+                        <dt>客户服务 </dt>
+
+                        <dd>
+                            <a href="#" target="_blank" title="隐私条款">
+                                隐私条款
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="公司简介">
+                                公司简介
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="安全条款">
+                                安全条款
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="联系方式">
+                                联系方式
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="服务声明">
+                                服务声明
+                            </a>
+                        </dd>
+
+                    </dl>
+
+
+                    <dl>
+                        <dt>购物指南 </dt>
+
+                        <dd>
+                            <a href="#" target="_blank" title="绿植寓意">
+                                绿植寓意
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="鲜花枝数寓意">
+                                鲜花枝数寓意
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="购物须知">
+                                购物须知
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="送花礼仪">
+                                送花礼仪
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="如何购买">
+                                如何购买
+                            </a>
+                        </dd>
+
+                    </dl>
+
+
+                    <dl>
+                        <dt>支付方式 </dt>
+
+                        <dd>
+                            <a href="#" target="_blank" title="支付方式">
+                                支付方式
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="银行转账">
+                                银行转账
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="在线补款">
+                                在线补款
+                            </a>
+                        </dd>
+
+                    </dl>
+
+
+                    <dl>
+                        <dt>配送信息 </dt>
+
+                        <dd>
+                            <a href="#" target="_blank" title="关于配送">
+                                关于配送
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="定时配送">
+                                定时配送
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="配送说明">
+                                配送说明
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="发票说明">
+                                发票说明
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="配送范围及费用">
+                                配送范围及费用
+                            </a>
+                        </dd>
+
+                    </dl>
+
+
+                    <dl>
+                        <dt>售后服务 </dt>
+
+                        <dd>
+                            <a href="#" target="_blank" title="投诉建议">
+                                投诉建议
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="订单查询">
+                                订单查询
+                            </a>
+                        </dd>
+
+                        <dd>
+                            <a href="#" target="_blank" title="订单取消">
+                                订单取消
+                            </a>
+                        </dd>
+
+                    </dl>
+
+
+                    <img style="width:100px;height:100px;" src="../Image/kefucode.jpg">
+                    <p style="margin-top:10px;">添加客服微信，得更多优惠！</p>
+                </div>
+                <div class="bottom">
+                    <style>
+                        .footerbox {
+                            width: 800px;
+                            margin: 0 auto;
+                            padding-top: 0px;
+                        }
+                    </style>
+                    <div class="footerbox">
+                        <img src="../Image/cxwz.gif">
+                        <img src="../Image/smyz.gif">
+                        <img src="../Image/cnnic.png">
+                        <img src="../Image/pay.jpg">
+                        <img src="../Image/wchar.jpg">
+                        <img src="../Image/erm.jpg">
+                    </div>
+                    <div class="footer_link">
+
+                        本地订花热线 : 4008-823-8823    技术支持热线:020-16131574
+                    </div>
+                    <div class="footer_link">
+
+                        版权所有:广东交通职业技术学院16软件4班 粤ICP备16131574号
+                    </div>
+                </div>
+                <!--bottom结束-->
+            </div>
+        </section>
+    </div>
+    @*<section style="width:1000px;height:50px;background-color:white;margin:0 auto;"></section>*@
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Scripts/main.js"></script>
+</body>
+</html>

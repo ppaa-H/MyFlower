@@ -1,0 +1,7 @@
+section .content table td {
+    width: 310px;
+}
+section .content table tr td a {
+    color:blue;
+    text-decoration:none;
+}

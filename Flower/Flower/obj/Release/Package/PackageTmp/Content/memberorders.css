@@ -1,0 +1,80 @@
+
+body {
+   background:url("/Image/bgall.gif") repeat;
+}
+.list {
+    width: 1200px;
+    height: 600px;
+    padding: 10px;
+    /*margin-bottom:50px;*/
+   background:url("/Image/bgall.gif") repeat;
+    margin: 60px auto;
+    display: block;
+}
+
+    .list h1 {
+        /*background-color:#D2B48C;*/
+        height: 10px;
+        margin: 45px auto;
+    }
+
+
+    .list table {
+        margin-left: 100px;
+        width: 1000px;
+        height: 80px;
+        color: black;
+        border: solid 1px #000;
+    }
+
+        .list table tr {
+            border: solid 1px #000;
+            text-align: center;
+        }
+            .list table tr th {
+                 text-align: center;
+                 height:40px;
+            }
+            .list table tr td:nth-child(3) {
+                width:180px;
+            }
+            .list table tr td {
+                color: black;
+                width: 80px;
+                border: solid 1px #000;
+            }
+
+/*分页容器 主体样式*/
+.pager {
+    padding: 10px;
+}
+
+/*可用的按钮*/
+.able {
+    margin: 0 2px;
+    padding: 3px 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #777;
+    cursor: default;
+}
+
+/*不可用的按钮*/
+.disable {
+    margin: 0 2px;
+    padding: 3px 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #777;
+    cursor: default;
+}
+
+/*当前按钮*/
+.current {
+    margin: 0 2px;
+    padding: 3px 10px;
+    border: 1px solid #337ab7;
+    background-color: #337ab7;
+    color: #fff;
+    cursor: default;
+}

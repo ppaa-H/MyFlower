@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.Title = "ShopCar";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    window.onload = function () {
+        ShopCarList()
+    }
+    function AllCheck()
+    {
+        var check = document.getElementById('allcheck');
+        if (check.checked == true) {
+            $("input[type='checkbox']").prop("checked", true);
+        }
+        else {
+            $("input[type='checkbox']").prop("checked", false);
+        }
+    }
+    function ShopCarList() {
+        $.ajax({
+            url: "/ShopCar/GiveShopCar",
+            type: "post",
+            datatype: "json",
+            cache: false,
+            contentType: 'application/json',
+            success: function (result) {
+                var height = result.length / 7 * 200
+                $('#Main').css("height",""+height+"px")
+                lis = '<div style="width:50px;height:30px;margin-bottom:20px;"><input id="allcheck" type="checkbox" onclick="AllCheck();Money()" style="margin-left:1px;margin-top:5px;">全选</div>'
+                var j = 0;
+                for (var i = 0; i < result.length; i = i + 7) {
+                    lis += '<div style="width:800px;height:160px;margin-bottom:20px;">'
+                    lis += '<input type="checkbox" onclick="Money()" value="' + result[i] + '" style="float:left;width:10%;margin-top:70px;">'
+                    lis += '<div id="main' + j + '" style=" width: 90%; height: 160px; border: 1px solid black;box-sizing: border-box; position:relative;float:left" >'
+                    lis += '<img id="img" src="' + result[i + 2] + '" onclick=Detailed(' + result[i + 6] + ') />'
+                    lis += '<div style="float: left; width: 69%;" onclick=Detailed(' + result[i + 6] + ')>'
+                    lis += '<div id="mess" >' + result[i + 1] + '</div><div id="mess" >' + result[i + 3] + '</div><div id="mess" class="price" >￥' + result[i + 4] + '</div></div>'
+                    lis += '<div id="left">'
+                    lis += '<div style="position: absolute; top: 5px; right: 3px;">'
+                    lis += '<span style="margin-bottom:3px;cursor:pointer;" onclick=edit(' + result[i] + ',' + j + ',0);Money()>一</span>'
+                    lis += ' <div  id="num" style="border:1px solid black;width:30px;">' + result[i + 5] + '</div>'
+                    lis += ' <span style="margin-top:3px;cursor:pointer;" onclick=edit(' + result[i] + ',' + j + ',1);Money()>十</span></div>'
+                    lis += ' <div style="color:green;position:absolute;bottom:30px;right:3px;cursor:pointer;" onclick=AddOder(' + result[i] + ')>下单</div></div>'
+                    
+                    lis += ' <div style="color:red;position:absolute;bottom:0;right:3px;cursor:pointer;" onclick=Delete(' + result[i] + ')>删除</div></div>'
+                    lis += '</div>'
+                    lis += '</div>'
+                    j++;
+                }
+                $('#Main').html(lis)
+            }
+        })
+    }
+    function Detailed(id) {
+        url = "/Home/Detailed?id=" + id + "";
+        window.location.href = url;
+    }
+    function Money()
+    {
+        var check = document.getElementsByTagName('input');
+        var array = new Array()
+        var j = 0;
+        for (var i = 2; i < check.length; i++) {
+
+            if (check[i].checked == true) {
+                array[j] = check[i].value
+                j++;
+            }
+        }
+        var arr = array.toString();
+        $.ajax({
+            url: "/ShopCar/Money",
+            data: JSON.stringify({ "array": arr }),
+            type: "post",
+            datatype: "json",
+            cache: false,
+            contentType: 'application/json',
+            success: function (result) {
+                $('#money').html(result)
+            }
+        })
+    }
+    function edit(id, x, y) {
+        if (y == 0) {
+            if (num <= 1) {
+                alert("至少购买一件")
+            }
+            else {
+                if (parseInt($('#main' + x + ' #num').html()) > 1)
+                {
+                    afternum = parseInt($('#main' + x + ' #num').html()) - 1
+                    editNum(afternum, id, x)
+                }
+                else {
+                    alert("至少购买一件")
+                }
+            }
+        }
+        else {
+            afternum = parseInt($('#main' + x + ' #num').html()) + 1
+            $.ajax({
+                url: "/ShopCar/GetInventory",
+                data: JSON.stringify({id: id }),
+                type: "post",
+                datatype: "json",
+                cache: false,
+                contentType: 'application/json',
+                success: function (result) {
+                    if (parseInt($('#main' + x + ' #num').html()) == result) {
+                        alert("不好意思，库存不足");
+                    }
+                    else {
+                        editNum(afternum, id, x)
+                    }
+                }
+            })
+        }
+    }
+    function editNum(afternum, id, x) {
+        $.ajax({
+            url: "/ShopCar/EditShopCar",
+            data: JSON.stringify({ afternum: afternum, id: id }),
+            type: "post",
+            datatype: "json",
+            cache: false,
+            contentType: 'application/json',
+            success: function (result) {
+                $('#main' + x + ' #num').html(afternum)
+                $('#main' + x + ' .price').html('￥' + result)
+            }
+        })
+    }
+    function Delete(id) {
+        $.ajax({
+            url: "/ShopCar/DeleteShopCar",
+            data: JSON.stringify({ id: id }),
+            type: "post",
+            datatype: "json",
+            cache: false,
+            contentType: 'application/json',
+            success: function (result) {
+                ShopCarList()
+            }
+        })
+    }
+    function AddOder(id)
+    {
+        window.location.href = "/MemberOrders/Add?array=" + id + "&carOrproduct=0"
+    }
+    function AddOders() {
+        var check = document.getElementsByTagName('input');
+        var array = new Array()
+        var j = 0;
+        for (var i = 2; i < check.length; i++) {
+
+            if (check[i].checked == true) {
+                array[j] = check[i].value
+                j++;
+            }
+        }
+        window.location.href = "/MemberOrders/Add?array=" + array + "&carOrproduct=0"
+    }
+    function deletecar() {
+        var check = document.getElementsByTagName('input');
+        var array = new Array()
+        for (var i = 0; i < check.length; i++) {
+            if (check[i].checked == true) {
+                Delete(check[i].value)
+            }
+        }
+    }
+</script>
+<style>
+    #img {
+        width: 150px;
+        height: 150px;
+        float: left;
+        margin: 5px 5px;
+    }
+
+    #mess {
+        width: 100%;
+        height: 40px;
+        margin-top: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: left;
+        line-height:40px;
+    }
+
+    #left {
+        float: left;
+        width: 10%;
+        height: 80px;
+    }
+</style>
+<section style="margin:50px auto;margin-top:130px;width:800px;" id="Main"></section>
+<div style="width: 800px; height: 50px; margin: 10px auto;">
+    <div style="font-size:24px;">总额:￥<span id="money" style="color:#f50;">0</span></div>
+</div>
+<div style="width: 800px; height: 50px; margin: 10px auto;">
+    <button onclick="AddOders()">下单</button>
+    <button onclick="deletecar()">删除</button>
+</div>

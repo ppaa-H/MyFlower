@@ -1,0 +1,118 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<Flower.Models.Orders>
+@{
+    ViewBag.Title = "鲜花后台管理页面-订单管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+    <link href="~/Content/manage/orders-manage.css" rel="stylesheet" />
+</asp:Content>
+
+<script type="text/javascript">
+    function get() {
+        obj = document.getElementsByName("checkitem");
+        checkValue = [];
+        for (k in obj) {
+            if (obj[k].checked)
+                checkValue.push(obj[k].value);
+        }
+        deleteId = checkValue.toString();
+        tableName = "Product";
+        document.getElementById("BatchDelete").href = "/Manage/BatchDelete/?idArray=" + deleteId + "&tableName=" + tableName;
+    }
+</script>
+
+<div class="content">
+    <div class="title">订单管理</div>
+    <div style="text-align:right">
+        <a href="/Manage/BatchDelete/" id="BatchDelete" onclick="return confirm('确认删除吗？')"><input type='button' value='批量删除' onclick="get()" /></a>
+    </div>
+    <div class="search">
+        <fieldset>
+            <legend>订单查询</legend>
+            <form action="/Manage/OrdersManage" method="post">
+                <span>用户名称：</span><input type="text" name="ordersName" id="ordersName" style="width:120px" />
+                <input type="submit" value="搜索(S)" accesskey="S" />
+                <input type="button" onclick="window.location.href = '/Manage/OrdersManage'" value="刷新" />
+            </form>
+        </fieldset>
+    </div>
+    <p></p>
+    <div class="filter" style="text-align:left">
+        筛选条件
+        <input type="checkbox" name="filter" value="0" onclick="window.location.href = '/Manage/OrdersFilter/0'" />待付款
+        <input type="checkbox" name="filter" value="1" onclick="window.location.href = '/Manage/OrdersFilter/1'" />已付款未发货
+        <input type="checkbox" name="filter" value="2" onclick="window.location.href = '/Manage/OrdersFilter/2'" />已发货
+        <input type="checkbox" name="filter" value="3" onclick="window.location.href = '/Manage/OrdersFilter/3'" />已收货
+        <input type="checkbox" name="filter" value="4" onclick="window.location.href = '/Manage/OrdersFilter/4'" />待退款
+        <input type="checkbox" name="filter" value="5" onclick="window.location.href = '/Manage/OrdersFilter/5'" />已退款
+    </div>
+    <table style="margin: 0 auto;">
+        <tr>
+            <th width="150px">多选</th>
+            <th width="140px">用户姓名</th>
+            <th width="200px">创建时间</th>
+            <th width="150px">订单总额</th>
+            <th width="140px">订单状态</th>
+            <th width="140px">操作</th>
+        </tr>
+        @if (Model.Count != 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.CheckBox("checkitem", new { value = item.OrdersId, style = "zoom:200%;" })</td>
+                    <td>@item.OrdersName</td>
+                    <td>@item.CreateTime.ToShortDateString()</td>
+                    <td>¥@item.Price</td>
+                    @{
+                if (item.Status == 0)
+                {
+                    <td>待付款</td>
+                }
+                if (item.Status == 1)
+                {
+                    <td>已付款未发货</td>
+                }
+                if (item.Status == 2)
+                {
+                    <td>已发货</td>
+                }
+                if (item.Status == 3)
+                {
+                    <td>已收货</td>
+                }
+                if (item.Status == 4)
+                {
+                    <td>待退款</td>
+                }
+                if (item.Status == 5)
+                {
+                    <td>已退款</td>
+                }
+                    }
+                    <td>
+                        <a href="/Manage/OrdersList/?ordersId=@item.OrdersId">查看</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr></tr>
+            <tr><td colspan="6">暂未查询到符合条件的内容</td></tr>
+        }
+        <tr>
+            <td colspan="6">
+                @Html.Pager(Model, new PagerOptions
+           {
+               PageIndexParameterName = "pageIndex",
+               FirstPageText = "首页",
+               PrevPageText = "上一页",
+               NextPageText = "下一页",
+               LastPageText = "末页",
+           })
+            </td>
+        </tr>
+    </table>
+</div>

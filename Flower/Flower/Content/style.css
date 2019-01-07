@@ -1,0 +1,185 @@
+﻿
+.main {
+    width: 100%;
+    height: 1700px;
+    background: url("/Image/bgall.gif") repeat;
+    margin: -129px auto;
+    /*position: absolute;*/
+    display: block;
+}
+
+    .main .hua_title {
+        width: 1000px;
+        text-align: center;
+        height: 100px;
+        margin: 30px auto;
+        line-height: 100px;
+        font-size: 36px;
+        font-family: "黑体";
+        font-weight: bold;
+        color: #717171;
+        margin-top: 20px;
+        /*border: 1px solid #000;*/
+    }
+    /*第一部分*/
+    .main .hua_pic {
+        width: 1200px;
+        margin: -20px auto;
+        height: 420px;
+        /*background-color: white;*/
+        position: relative;
+    }
+
+        .main .hua_pic .h_right img {
+            border: 1px solid #fff;
+            border-width: 5px 5px 5px 5px;
+            box-shadow: 1px 1px 5px #333;
+            width: 493px;
+        }
+
+        .main .hua_pic .h_left img {
+            border: 1px solid #fff;
+            border-width: 5px 5px 5px 5px;
+            box-shadow: 1px 1px 5px #333;
+            width: 493px;
+        }
+
+        .main .hua_pic .h_left {
+            /*border: 1px solid #808080;*/
+            width: 520px;
+            height: 385px;
+            margin-left: 60px;
+            float: left;
+        }
+
+        .main .hua_pic .h_right {
+            /*border: 1px solid #808080;*/
+            width: 520px;
+            height: 385px;
+            margin-left: 60px;
+            float: left;
+        }
+
+        .main .hua_pic .pic_text {
+            width: 500px;
+            height: 50px;
+            /*border: 1px solid #000;*/
+            line-height: 50px;
+        }
+
+            .main .hua_pic .pic_text .dpby_big, .dpby_big {
+                font-size: 28px;
+                font-family: "楷体";
+                color: black;
+                float: left;
+                font-weight: bold;
+                margin-left: 25px;
+            }
+
+        .main .hua_pic .pic_text, .main-looper .dpby_small {
+            font-size: 18px;
+            color: #727272;
+            display: inline-block;
+            font-family: "黑体";
+            margin-left: 15px;
+            font-weight: bold;
+        }
+    /*第二部分*/
+    .main .main_kuai .kuai_title {
+        width: 1000px;
+        text-align: center;
+        height: 30px;
+        margin: 30px auto;
+        line-height: 30px;
+        font-size: 36px;
+        font-family: "黑体";
+        font-weight: bold;
+        color: #717171;
+        font-weight: bold;
+    }
+
+    .main .main_kuai .kuai_pic {
+        width: 1100px;
+        height: 350px;
+        margin: 0 auto;
+        /*background-color: gold;
+        border: 1px solid #000;*/
+        position: relative;
+    }
+
+    .main .main_kuai .k_left {
+        margin: 10px 0 0 10px;
+        width: 500px;
+        height: 350px;
+        float: left;
+    }
+
+    .main .main_kuai .k_right {
+        margin: 10px 0 0 10px;
+        width: 500px;
+        height: 350px;
+        float: right;
+    }
+
+    .main .main_kuai img {
+        border: 1px solid #fff;
+        border-width: 1px 1px 1px 1px;
+        box-shadow: 1px 1px 5px #333;
+    }
+    /*第三部分*/
+    .main .main-looper {
+        width: 100%;
+        height: 500px;
+    }
+
+        .main .main-looper .main-lastpic {
+            width: 1100px;
+            height: 500px;
+            margin: 50px auto;
+            /*border: 1px solid #000;*/
+        }
+
+            .main .main-looper .main-lastpic img {
+                width: 100%;
+                height: 450px;
+                border: 1px solid #fff;
+                border-width: 5px 5px 5px 5px;
+                box-shadow: 1px 1px 5px #333;
+            }
+
+            .main .main-looper .main-lastpic .pic_text {
+                width: 1000px;
+                height: 30px;
+                line-height: 35px;
+                padding-top: 5px;
+            }
+
+            .main .main-looper .main-lastpic .pic_text .dpby_small, .dpby_big {
+                    float: left;
+                    margin-left: 60px;
+                }
+
+.clear {
+    width: 1060px;
+    height: 1px;
+    margin: 0 auto;
+    padding: 0px;
+    background-color: #D5D5D5;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+a:hover img {
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+
+img {
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    -moz-transition: transform .3s,-moz-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s,-moz-transform .3s;
+}

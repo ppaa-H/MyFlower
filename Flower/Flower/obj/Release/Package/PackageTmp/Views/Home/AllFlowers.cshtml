@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "AllFlowers";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@using Flower.Models;
+@model Flower.Models.Product
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#FestivalId").append("<option value='0' selected = true>全部</option>");
+        $("#ColorId").append("<option value='0'selected = true >全部</option>");
+        $("#FlowerKindId").append("<option value='0' selected = true>全部</option>");
+        $("#FestivalId").change(function () {
+            var FestivalId = $('#FestivalId').val();
+            var ColorId = $('#ColorId').val();
+            var FlowerKindId = $('#FlowerKindId').val();
+            SelectList(FestivalId, ColorId, FlowerKindId)
+        })
+        $("#ColorId").change(function () {
+            var FestivalId = $('#FestivalId').val();
+            var ColorId = $('#ColorId').val();
+            var FlowerKindId = $('#FlowerKindId').val();
+            SelectList(FestivalId, ColorId, FlowerKindId)
+        })
+        $("#FlowerKindId").change(function () {
+            var FestivalId = $('#FestivalId').val();
+            var ColorId = $('#ColorId').val();
+            var FlowerKindId = $('#FlowerKindId').val();
+            SelectList(FestivalId, ColorId, FlowerKindId)
+        })
+        $.ajax({
+            url: "/Home/SelectCount",
+            data: JSON.stringify({ FestivalId: 0, ColorId: 0, FlowerKindId: 0 }),
+            type: 'Post',
+            dataType: 'json',
+            cache: false,
+            contentType: 'application/json',
+            success: function (result) {
+                page(result, 12, 0, 0, 0)
+            }
+        })
+    })
+    function SelectList(FestivalId, ColorId, FlowerKindId) {
+        $.ajax({
+            url: "/Home/SelectCount",
+            data: JSON.stringify({ FestivalId: FestivalId, ColorId: ColorId, FlowerKindId: FlowerKindId }),
+            type: 'Post',
+            dataType: 'json',
+            cache: false,
+            contentType: 'application/json',
+            success: function (result) {
+                page(result, 12, FestivalId, ColorId, FlowerKindId)
+            }
+        })
+    }
+    function page(dataCount, pageSize, FestivalId, ColorId, FlowerKindId) {
+        var num;
+        var pageNum = Math.ceil(dataCount / pageSize)
+        if (pageNum == 0) {
+            num = 1
+        }
+        else {
+            num = pageNum
+        }
+        lis = '<ul>'
+        lis += '<li onclick="onPageNum(1 ,' + pageSize + ',' + FestivalId + ',' + ColorId + ',' + FlowerKindId + ')" style="width:40px;">首页 </li>'
+        for (var i = 0; i < num; i++) {
+            lis += '<li onclick="onPageNum(' + (i + 1) + ',' + pageSize + ',' + FestivalId + ',' + ColorId + ',' + FlowerKindId + ')" >' + (i + 1) + '</li>'
+        } 
+        lis += '<li onclick="onPageNum(' + num + ',' + pageSize + ',' + FestivalId + ',' + ColorId + ',' + FlowerKindId + ')" style="width:40px;">尾页</li>'
+        lis += '</ul>'
+        $('#page').html(lis)
+        onPageNum(1, pageSize, FestivalId, ColorId, FlowerKindId)
+    }
+    function onPageNum(pageNum, pageSize, FestivalId, ColorId, FlowerKindId) {
+        $('#page li:nth-child(' + (pageNum+1) + ')').css("border-color", "pink")
+        $.ajax({
+            url: "/Home/SelectList",
+            data: JSON.stringify({ FestivalId: FestivalId, ColorId: ColorId, FlowerKindId: FlowerKindId }),
+            type: 'Post',
+            dataType: 'json',
+            cache: false,
+            contentType: 'application/json',
+            success: function (result) {
+                var num;
+                num = pageNum * pageSize * 5
+                if (result.length < pageNum * pageSize * 5) {
+                    num = result.length
+                }
+                var height = Math.ceil(((num - (pageNum - 1) * 5 * pageSize)/5)/4)*320
+                lis = ''
+                $('#content').css("height", ""+height+"px")
+                for (var i = (pageNum - 1) * 5 * pageSize; i < num; i = i + 5) {
+                    lis += '<div class="frame" onclick=Detailed(' + result[i] + ')>'
+                    lis += '<div style="width:100%;height:80%;"><img src="' + result[i + 1] + '" style="width:100%;height:100%;"></div>'
+                    lis += '<div class="name" style="font-size:16px;">' + result[i + 2] + '</div>'
+                    lis += '<div class="money"  style="text-align:center;font-sixe:16px;">￥' + result[i + 3] + '</div>'
+                    lis += '<div class="language" style="font-size:12px;height:20%">' + result[i + 4] + '</div>'
+                    lis += '</div>'
+                }
+                $('#content').html(lis)
+            }
+        })
+    }
+    function Detailed(ProductId) {
+        url = "/Home/Detailed?id=" + ProductId + "";
+        window.location.href = url;
+    }
+</script>
+<style>
+    .frame {
+        width: 220px;
+        height: 320px;
+        margin: 10px 15px 20px 15px;
+        float: left;
+    }
+
+    .language {
+        font-size: 16px;
+        height: 20%;
+        display: none;
+    }
+
+    .name {
+        text-align: center;
+        font-size: 20px;
+        display: block;
+    }
+
+    .frame:hover .language {
+        display: block;
+    }
+
+    .frame:hover .name, .frame:hover .money {
+        display: none;
+    }
+
+    #page ul {
+        height: 20px;
+        margin: 0 auto;
+    }
+
+        #page ul li {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            padding: 0;
+            float: left;
+            border: 1px solid black;
+            box-sizing: border-box;
+            list-style: none;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: default;
+        }
+</style>
+<section style="width: 100%; margin-bottom: 30px; top: 100px; position: fixed; background-color: white; ">
+    <div style="width: 1000px; height: 30px; margin: 0px auto; ">
+        节日:
+        @Html.DropDownListFor(f => f.FestivalId, ViewBag.Festival as SelectList)
+        颜色:
+        @Html.DropDownListFor(c => c.ColorId, ViewBag.Color as SelectList)
+        种类:
+        @Html.DropDownListFor(k => k.FlowerKindId, ViewBag.FlowerKind as SelectList)
+    </div>
+</section>
+<section style="width: 1000px;height:1000px; margin: 0 auto; margin-top: 160px;" id="content"></section>
+<div style="width: 1000px; margin: 200px auto; margin-top: 100px;" id="page"></div>
