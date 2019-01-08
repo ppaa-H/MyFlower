@@ -2,7 +2,7 @@
 ##鲜花网站订购及后台管理系统
 
 ##下面截几张图
-###这是网站首页 轮播图+一些小图，轮播图通过bootstrap实现，非常简便###
+###这是网站首页 轮播图+一些小图，轮播图通过bootstrap实现，非常简便
 ####上半部分
 
 ![image](https://github.com/ppaa-H/MyFiles/raw/master/%E9%B2%9C%E8%8A%B1%E7%BD%91%E7%AB%99/%E9%A6%96%E9%A1%B5.JPG)
@@ -31,4 +31,3 @@
 ##后台管理员部分没有展现出来，因为我没有参与其中，且后台管理比较单一以及重复性太多，还有其他的一些页面，例如登陆、注册、个人信息修改等
 
 
-![image](https://github.com/ppaa-H/MyFiles/raw/master/%E9%B2%9C%E8%8A%B1%E7%BD%91%E7%AB%99/%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%88%97%E8%A1%A8.JPG)
