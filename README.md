@@ -31,4 +31,4 @@
 ##后台管理员部分没有展现出来，因为我没有参与其中，且后台管理比较单一以及重复性太多，还有其他的一些页面，例如登陆、注册、个人信息修改等
 
 
-![image](https://github.com/ppaa-H/MyFiles/blob/master/%E9%B2%9C%E8%8A%B1%E7%BD%91%E7%AB%99/%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%88%97%E8%A1%A8.JPG)
+![image](https://github.com/ppaa-H/MyFiles/raw/master/%E9%B2%9C%E8%8A%B1%E7%BD%91%E7%AB%99/%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%88%97%E8%A1%A8.JPG)
