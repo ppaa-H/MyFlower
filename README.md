@@ -24,7 +24,7 @@
 #### 购物车列表
 ![image](https://github.com/ppaa-H/MyFiles/raw/master/%E9%B2%9C%E8%8A%B1%E7%BD%91%E7%AB%99/%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%88%97%E8%A1%A8.JPG)
 
-#### 联系客服，通过iis发布后，在局域网中可实现实时聊天，基于ajax长轮询的方式
+#### 联系客服，通过iis发布后，在局域网中可实现实时聊天，基于ajax长轮询的方式，页面没有进行美观的设计
 ![image](https://github.com/ppaa-H/MyFiles/raw/master/%E9%B2%9C%E8%8A%B1%E7%BD%91%E7%AB%99/%E5%AE%A2%E6%9C%8D.JPG)
 
 
