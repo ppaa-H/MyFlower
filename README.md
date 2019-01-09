@@ -8,6 +8,7 @@
 ![image](https://github.com/ppaa-H/MyFiles/raw/master/%E9%B2%9C%E8%8A%B1%E7%BD%91%E7%AB%99/%E9%A6%96%E9%A1%B5.JPG)
 
 ##### 下半部分
+###### 二维码是我队友的，请忽略
 
 ![image](https://github.com/ppaa-H/MyFiles/raw/master/%E9%B2%9C%E8%8A%B1%E7%BD%91%E7%AB%99/%E9%A6%96%E9%A1%B52.JPG)
 
